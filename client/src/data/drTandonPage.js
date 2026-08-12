@@ -52,7 +52,7 @@ export const clinicalAreas = {
     'Comprehensive Psychiatric Evaluations',
     'Medication Management',
   ],
-  note: 'Detailed condition-specific information will be available on dedicated pages.',
+  note: 'See Conditions We Treat for detailed, condition-specific information.',
 };
 
 export const educationTraining = {

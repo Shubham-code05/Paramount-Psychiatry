@@ -12,11 +12,10 @@ export default function ConditionsOverviewGrid() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="white">
+    <Section spacing="md" background="white">
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        animate="visible"
         variants={staggerContainer}
         className="flex flex-col gap-10"
       >

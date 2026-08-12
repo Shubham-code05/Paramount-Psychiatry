@@ -1,8 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import { clinicalAreas } from '../../data/drTandonPage';
 import { fadeUp, staggerContainer } from '../../lib/motion';
+
+const pillStyles = ['bg-sage-soft', 'bg-blue-soft', 'bg-lavender-soft'];
 
 export default function ClinicalAreas() {
   const shouldReduceMotion = useReducedMotion();
@@ -19,18 +22,23 @@ export default function ClinicalAreas() {
           variants={staggerContainer}
           className="flex flex-wrap gap-3"
         >
-          {clinicalAreas.areas.map((area) => (
+          {clinicalAreas.areas.map((area, index) => (
             <motion.span
               key={area}
               variants={fadeUp}
-              className="rounded-full border border-border bg-sage-soft px-4 py-1.5 text-body-sm text-navy-deep"
+              className={`rounded-full border border-border px-4 py-1.5 text-body-sm text-navy-deep ${pillStyles[index % pillStyles.length]}`}
             >
               {area}
             </motion.span>
           ))}
         </motion.div>
 
-        <p className="text-caption text-muted">{clinicalAreas.note}</p>
+        <p className="text-caption text-muted">
+          {clinicalAreas.note}{' '}
+          <Link to="/conditions" className="font-medium text-navy hover:text-navy-deep hover:underline underline-offset-4">
+            View Conditions We Treat
+          </Link>
+        </p>
       </div>
     </Section>
   );

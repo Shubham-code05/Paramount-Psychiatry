@@ -4,12 +4,14 @@ import Button from '../ui/Button';
 import AppointmentButton from './AppointmentButton';
 import { fadeUp } from '../../lib/motion';
 
-// Generic closing CTA reused across the Conditions overview and every
-// individual condition/service page — keeps the "Make an Appointment" /
-// "Contact Us" pairing and the Headway link centralized in one place.
+// Generic closing CTA reused across every page on the site — keeps the
+// "Make an Appointment" / "Contact Us" pairing and the Headway link
+// centralized in one place. `body` is optional (the homepage uses it for a
+// short supporting line; most pages omit it).
 export default function FinalCta({
   eyebrow = 'Ready to take the next step?',
   heading = 'Your mental health deserves thoughtful care.',
+  body,
 }) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -24,6 +26,7 @@ export default function FinalCta({
       >
         {eyebrow && <span className="text-eyebrow uppercase text-sage font-semibold">{eyebrow}</span>}
         <h2 className="text-h2 text-white max-w-xl">{heading}</h2>
+        {body && <p className="text-body-lg text-white/70 max-w-md">{body}</p>}
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <AppointmentButton size="lg" />
           <Button to="/contact" variant="ghost-light" size="lg">

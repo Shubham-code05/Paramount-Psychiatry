@@ -5,25 +5,39 @@ import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import Breadcrumbs from '../shared/Breadcrumbs';
 import FinalCta from '../shared/FinalCta';
+import ProcessSteps from '../shared/ProcessSteps';
 import { fadeUp, staggerContainer } from '../../lib/motion';
+import { cn } from '../../lib/cn';
+
+// List-dot color alternates between the two soft accent tones across the
+// areas / audience / afterward lists so a long list doesn't read as flat.
+const dotStyles = ['bg-sage-deep', 'bg-lavender-deep'];
 
 // Single reusable template driving every /conditions/:slug and
 // /services/:slug page. New categories are added by adding an entry to
 // data/conditions.js or data/services.js — this component never changes.
 //
 // `data` shape: { title, eyebrow, intro, overview: { heading?, paragraphs },
-//   areas: { heading?, items: [{ title, description }] }, approach: { heading?, paragraphs },
-//   disclaimer?: string, related: [{ label, path }] }
+//   areas: { heading?, items: [{ title, description }] },
+//   process?: { eyebrow?, heading, intro?, steps: [{ title, description }] },
+//   audience?: { heading, intro?, items: [{ label, path? }] },
+//   approach: { heading?, paragraphs }, disclaimer?: string,
+//   afterward?: { heading, intro?, items: [{ label, path? }] },
+//   related: [{ label, path }], relatedHeading?: string }
 // `parent`: { label, path } — the breadcrumb's middle segment (defaults to Conditions We Treat).
 export default function ConditionPage({ data, parent = { label: 'Conditions We Treat', path: '/conditions' } }) {
   const shouldReduceMotion = useReducedMotion();
-  const { title, eyebrow, intro, overview, areas, approach, disclaimer, related } = data;
+  const { title, eyebrow, intro, overview, areas, process, audience, approach, disclaimer, afterward, related, relatedHeading } = data;
 
   return (
     <>
       <Section spacing="xl" background="warm" className="relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-[58%_42%_36%_64%/60%_38%_62%_40%] bg-sage-soft opacity-60"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-60"
           aria-hidden="true"
         />
         <motion.div
@@ -40,11 +54,10 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
       </Section>
 
       {overview?.paragraphs?.length > 0 && (
-        <Section spacing="lg" background="white">
+        <Section spacing="md" background="white">
           <motion.div
             initial={shouldReduceMotion ? false : 'hidden'}
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            animate="visible"
             variants={fadeUp}
             className="flex flex-col gap-5 max-w-3xl"
           >
@@ -59,11 +72,10 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
       )}
 
       {areas?.items?.length > 0 && (
-        <Section spacing="lg" background="ivory">
+        <Section spacing="md" background="ivory">
           <motion.div
             initial={shouldReduceMotion ? false : 'hidden'}
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            animate="visible"
             variants={staggerContainer}
             className="flex flex-col gap-8"
           >
@@ -71,9 +83,9 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
               <SectionHeading title={areas.heading ?? 'Areas We Commonly Address'} maxWidth="max-w-2xl" />
             </motion.div>
             <div className="grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2">
-              {areas.items.map((item) => (
+              {areas.items.map((item, index) => (
                 <motion.div key={item.title} variants={fadeUp} className="flex gap-3">
-                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage-deep" aria-hidden="true" />
+                  <span className={cn('mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
                   <div className="flex flex-col gap-1">
                     <h3 className="text-h4 text-navy-deep">{item.title}</h3>
                     {item.description && <p className="text-body-sm text-muted">{item.description}</p>}
@@ -81,6 +93,40 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </Section>
+      )}
+
+      {process?.steps?.length > 0 && (
+        <ProcessSteps eyebrow={process.eyebrow} heading={process.heading} intro={process.intro} steps={process.steps} background="white" />
+      )}
+
+      {audience?.items?.length > 0 && (
+        <Section spacing="md" background="ivory">
+          <motion.div
+            initial={shouldReduceMotion ? false : 'hidden'}
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={staggerContainer}
+            className="flex flex-col gap-6"
+          >
+            <motion.div variants={fadeUp}>
+              <SectionHeading title={audience.heading} description={audience.intro} maxWidth="max-w-2xl" />
+            </motion.div>
+            <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+              {audience.items.map((item, index) => (
+                <motion.li key={item.label} variants={fadeUp} className="flex items-center gap-3 text-body text-charcoal">
+                  <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
+                  {item.path ? (
+                    <Link to={item.path} className="underline-offset-4 transition-colors hover:text-navy hover:underline">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Section>
       )}
@@ -95,11 +141,10 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
       )}
 
       {approach?.paragraphs?.length > 0 && (
-        <Section spacing="lg" background="white">
+        <Section spacing="md" background="white">
           <motion.div
             initial={shouldReduceMotion ? false : 'hidden'}
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            animate="visible"
             variants={fadeUp}
             className="flex flex-col gap-5 max-w-3xl"
           >
@@ -113,8 +158,8 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
         </Section>
       )}
 
-      {related?.length > 0 && (
-        <Section spacing="lg" background="ivory">
+      {afterward?.items?.length > 0 && (
+        <Section spacing="md" background="white">
           <motion.div
             initial={shouldReduceMotion ? false : 'hidden'}
             whileInView="visible"
@@ -123,7 +168,36 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
             className="flex flex-col gap-6"
           >
             <motion.div variants={fadeUp}>
-              <SectionHeading title="Related Conditions & Areas" maxWidth="max-w-2xl" />
+              <SectionHeading title={afterward.heading} description={afterward.intro} maxWidth="max-w-2xl" />
+            </motion.div>
+            <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+              {afterward.items.map((item, index) => (
+                <motion.li key={item.label} variants={fadeUp} className="flex items-center gap-3 text-body text-charcoal">
+                  <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
+                  {item.path ? (
+                    <Link to={item.path} className="underline-offset-4 transition-colors hover:text-navy hover:underline">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </Section>
+      )}
+
+      {related?.length > 0 && (
+        <Section spacing="md" background="ivory">
+          <motion.div
+            initial={shouldReduceMotion ? false : 'hidden'}
+            animate="visible"
+            variants={staggerContainer}
+            className="flex flex-col gap-6"
+          >
+            <motion.div variants={fadeUp}>
+              <SectionHeading title={relatedHeading ?? 'Related Conditions & Areas'} maxWidth="max-w-2xl" />
             </motion.div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((item) => (

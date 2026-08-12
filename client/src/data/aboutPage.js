@@ -56,7 +56,7 @@ export const comprehensiveCare = {
     'Cognitive Disorders',
     'Mood Disorders Related to Hormonal or Medical Conditions',
   ],
-  note: 'Detailed information on each condition will be available on dedicated pages.',
+  note: 'See Conditions We Treat for detailed, condition-specific information.',
 };
 
 export const wholePersonCare = {

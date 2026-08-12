@@ -35,6 +35,7 @@ export default function Hero() {
           className="relative mx-auto aspect-[2/1] w-full max-w-56 sm:max-w-64 lg:aspect-square lg:max-w-md"
           aria-hidden="true"
         >
+          <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft lg:-bottom-6 lg:-left-6 lg:h-32 lg:w-32" />
           <div className="absolute inset-3 lg:inset-6 rounded-[60%_40%_32%_68%/62%_36%_64%_38%] bg-sage-soft" />
           <div className="absolute inset-0 rounded-[38%_62%_64%_36%/42%_68%_32%_58%] bg-blue-soft opacity-80" />
           <div className="absolute inset-6 lg:inset-12 rounded-4xl bg-white-warm shadow-elevated" />

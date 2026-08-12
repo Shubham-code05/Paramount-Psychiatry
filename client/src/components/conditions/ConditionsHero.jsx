@@ -17,6 +17,10 @@ export default function ConditionsHero() {
         className="pointer-events-none absolute -right-10 top-32 h-64 w-64 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-blue-soft opacity-70"
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-60"
+        aria-hidden="true"
+      />
 
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}

@@ -20,6 +20,9 @@
   --color-sage-hover: #97aa9d;
   --color-sage-soft: #e7eee9;
   --color-sage-deep: #5f7a68;
+  --color-lavender-soft: #ece7f5;
+  --color-lavender: #c9bfe0;
+  --color-lavender-deep: #7c6a9e;
   --color-ivory: #f8f6f1;
   --color-white-warm: #fcfbf8;
   --color-charcoal: #24313a;
@@ -129,5 +132,13 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* Faint lavender dot-grain, layered over light section backgrounds
+     (see Section.jsx) for a quiet texture across the site — never opaque
+     enough to affect text contrast. */
+  .bg-texture-lavender {
+    background-image: radial-gradient(circle, rgba(124, 106, 158, 0.08) 1px, transparent 1.5px);
+    background-size: 24px 24px;
   }
 }

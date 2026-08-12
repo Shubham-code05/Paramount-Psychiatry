@@ -9,7 +9,7 @@ export default function WholePersonCare() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="blue-soft">
+    <Section spacing="lg" background="lavender-soft">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}

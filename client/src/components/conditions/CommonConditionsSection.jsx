@@ -9,11 +9,10 @@ export default function CommonConditionsSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section id="commonly-treated" spacing="lg" background="ivory" className="scroll-mt-24">
+    <Section id="commonly-treated" spacing="md" background="ivory" className="scroll-mt-24">
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        animate="visible"
         variants={staggerContainer}
         className="flex flex-col gap-10"
       >

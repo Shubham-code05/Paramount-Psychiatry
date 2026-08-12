@@ -26,9 +26,10 @@ const columns = [
     heading: 'Information',
     links: [
       { label: 'Insurance & Fees', path: '/insurance-fees' },
-      { label: 'Practice Policies', path: '/practice-policies' },
+      { label: 'Practice Policies', path: '/patient-resources/practice-policies' },
       { label: 'FAQs', path: '/faqs' },
       { label: 'Patient Resources', path: '/patient-resources' },
+      { label: 'Appointment Requests', path: '/appointment' },
     ],
   },
 ];
@@ -104,10 +105,10 @@ export default function Footer() {
             &copy; {year} {site.name}. All rights reserved.
           </p>
           <div className="flex gap-5">
-            <Link to="/practice-policies" className="text-caption text-white/60 hover:text-white transition-colors">
+            <Link to="/patient-resources/practice-policies#privacy" className="text-caption text-white/60 hover:text-white transition-colors">
               Privacy
             </Link>
-            <Link to="/practice-policies" className="text-caption text-white/60 hover:text-white transition-colors">
+            <Link to="/patient-resources/practice-policies" className="text-caption text-white/60 hover:text-white transition-colors">
               Terms
             </Link>
           </div>

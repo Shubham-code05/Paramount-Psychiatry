@@ -153,12 +153,10 @@ export const insurancePreview = {
   ctaLink: '/insurance-fees',
 };
 
+// Only `body` is used — heading and button labels/links are the shared
+// <FinalCta /> component's defaults (which this data used to duplicate).
 export const finalCta = {
-  heading: 'Your mental health deserves thoughtful care.',
   body: 'Take the next step toward personalized psychiatric care.',
-  primaryCta: 'Make an Appointment',
-  secondaryCta: 'Contact Us',
-  secondaryLink: '/contact',
 };
 
 export const emergencyNotice = {

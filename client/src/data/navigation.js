@@ -53,11 +53,14 @@ export const navigation = [
     path: '/insurance-fees',
   },
   {
-    label: 'Practice Policies & Patient Information',
-    path: '/practice-policies',
+    label: 'Patient Resources',
+    path: '/patient-resources',
     children: [
-      { label: 'Practice Policies', path: '/practice-policies' },
-      { label: 'Patient Information', path: '/patient-information' },
+      { label: 'New Patients', path: '/patient-resources/new-patients' },
+      { label: 'Preparing for Your Visit', path: '/patient-resources/prepare-for-your-visit' },
+      { label: 'What to Expect', path: '/patient-resources/what-to-expect' },
+      { label: 'Telepsychiatry', path: '/patient-resources/telepsychiatry' },
+      { label: 'Practice Policies', path: '/patient-resources/practice-policies' },
     ],
   },
   {
@@ -65,12 +68,12 @@ export const navigation = [
     path: '/faqs',
   },
   {
-    label: 'Patient Resources',
-    path: '/patient-resources',
-  },
-  {
     label: 'Contact Us',
     path: '/contact',
+  },
+  {
+    label: 'Make an Appointment',
+    path: '/appointment',
   },
 ];
 

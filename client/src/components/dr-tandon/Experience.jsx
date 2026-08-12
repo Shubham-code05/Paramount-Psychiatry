@@ -8,7 +8,7 @@ export default function Experience() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="lavender-soft">
       <div className="flex flex-col gap-8">
         <SectionHeading eyebrow={experience.eyebrow} title={experience.heading} description={experience.body} />
 

@@ -8,7 +8,8 @@ import CareJourney from '../components/home/CareJourney';
 import ServicesPreview from '../components/home/ServicesPreview';
 import AccessSection from '../components/home/AccessSection';
 import InsurancePreview from '../components/home/InsurancePreview';
-import FinalCta from '../components/home/FinalCta';
+import FinalCta from '../components/shared/FinalCta';
+import { finalCta } from '../data/home';
 
 export default function HomePage() {
   return (
@@ -23,7 +24,7 @@ export default function HomePage() {
       <ServicesPreview />
       <AccessSection />
       <InsurancePreview />
-      <FinalCta />
+      <FinalCta eyebrow={null} body={finalCta.body} />
     </>
   );
 }

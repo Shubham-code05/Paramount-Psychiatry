@@ -1,13 +1,18 @@
 import { cn } from '../../lib/cn';
 import Container from './Container';
 
+// Light backgrounds carry a faint lavender dot-grain texture (see
+// index.css `.bg-texture-lavender`) so it reads consistently across the
+// site without touching every page individually. Dark/transparent
+// backgrounds are left plain — the texture was tuned for light surfaces.
 const backgrounds = {
   transparent: '',
-  white: 'bg-white',
-  warm: 'bg-white-warm',
-  ivory: 'bg-ivory',
-  'sage-soft': 'bg-sage-soft',
-  'blue-soft': 'bg-blue-soft',
+  white: 'bg-white bg-texture-lavender',
+  warm: 'bg-white-warm bg-texture-lavender',
+  ivory: 'bg-ivory bg-texture-lavender',
+  'sage-soft': 'bg-sage-soft bg-texture-lavender',
+  'blue-soft': 'bg-blue-soft bg-texture-lavender',
+  'lavender-soft': 'bg-lavender-soft bg-texture-lavender',
   navy: 'bg-navy-deep text-white',
 };
 

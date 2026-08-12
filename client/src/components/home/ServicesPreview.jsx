@@ -10,7 +10,7 @@ export default function ServicesPreview() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="lavender-soft">
       <div className="flex flex-col gap-10">
         <SectionHeading
           eyebrow={servicesPreview.eyebrow}
