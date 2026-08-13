@@ -14,11 +14,7 @@ export default function PracticePoliciesPage() {
         eyebrow={practicePoliciesHero.eyebrow}
         title={practicePoliciesHero.title}
         intro={practicePoliciesHero.intro}
-        crumbs={[
-          { label: 'Home', path: '/' },
-          { label: 'Patient Resources', path: '/patient-resources' },
-          { label: 'Practice Policies' },
-        ]}
+        crumbs={[{ label: 'Home', path: '/' }, { label: 'Practice Policies' }]}
       />
 
       <Section spacing="sm" background="white">

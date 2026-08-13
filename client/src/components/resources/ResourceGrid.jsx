@@ -4,6 +4,14 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
+// Icon-circle color cycles through the three supporting pastels — sage,
+// blue, lavender — in equal rotation, same treatment for all three.
+const iconStyles = [
+  { bg: 'bg-sage-soft', text: 'text-sage-deep' },
+  { bg: 'bg-blue-soft', text: 'text-navy' },
+  { bg: 'bg-lavender-soft', text: 'text-lavender-deep' },
+];
+
 // Editorial resource-card grid for the Patient Resources hub — same
 // bordered-card, hover-lift language as the "Related" links in
 // <ConditionPage />, extended with an icon and description per card.
@@ -11,10 +19,6 @@ import { cn } from '../../lib/cn';
 // The `lg` column count follows the item count (capped at 3) so a
 // two-item grid (e.g. a "Related Resources" pair) doesn't leave an
 // empty third slot on wide screens.
-// Icon-circle color rotates through the site's three soft accent tones
-// so no single card grid reads as monochrome.
-const iconStyles = ['bg-sage-soft text-sage-deep', 'bg-blue-soft text-navy', 'bg-lavender-soft text-lavender-deep'];
-
 export default function ResourceGrid({ items }) {
   const shouldReduceMotion = useReducedMotion();
   const lgCols = Math.min(items.length, 3);
@@ -34,6 +38,7 @@ export default function ResourceGrid({ items }) {
     >
       {items.map((item, index) => {
         const Icon = item.icon;
+        const iconStyle = iconStyles[index % iconStyles.length];
         return (
           <motion.div key={item.path} variants={fadeUp}>
             <Link
@@ -41,7 +46,7 @@ export default function ResourceGrid({ items }) {
               className="group flex h-full flex-col gap-4 rounded-(--radius-card) border border-border bg-white p-6 shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-elevated"
             >
               {Icon && (
-                <span className={cn('flex h-11 w-11 items-center justify-center rounded-full', iconStyles[index % iconStyles.length])}>
+                <span className={cn('flex h-11 w-11 items-center justify-center rounded-full', iconStyle.bg, iconStyle.text)}>
                   <Icon size={20} aria-hidden="true" />
                 </span>
               )}

@@ -6,12 +6,17 @@ import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 import { conditionsPreview } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
+import { cn } from '../../lib/cn';
+
+// Arrow color cycles through the three supporting pastels — sage, blue,
+// lavender — in equal rotation, same treatment for all three.
+const arrowColors = ['text-sage-deep', 'text-navy', 'text-lavender-deep'];
 
 export default function ConditionsPreview() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="lavender-soft">
       <div className="flex flex-col gap-10">
         <SectionHeading
           eyebrow={conditionsPreview.eyebrow}
@@ -26,7 +31,7 @@ export default function ConditionsPreview() {
           variants={staggerContainer}
           className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-2 lg:grid-cols-4"
         >
-          {conditionsPreview.items.map((item) => (
+          {conditionsPreview.items.map((item, index) => (
             <motion.div key={item.path} variants={fadeUp}>
               <Link
                 to={item.path}
@@ -38,7 +43,10 @@ export default function ConditionsPreview() {
                 </div>
                 <ArrowRight
                   size={18}
-                  className="text-sage-deep transition-transform group-hover:translate-x-1"
+                  className={cn(
+                    'transition-transform group-hover:translate-x-1',
+                    arrowColors[index % arrowColors.length],
+                  )}
                   aria-hidden="true"
                 />
               </Link>

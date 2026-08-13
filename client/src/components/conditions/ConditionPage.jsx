@@ -7,11 +7,6 @@ import Breadcrumbs from '../shared/Breadcrumbs';
 import FinalCta from '../shared/FinalCta';
 import ProcessSteps from '../shared/ProcessSteps';
 import { fadeUp, staggerContainer } from '../../lib/motion';
-import { cn } from '../../lib/cn';
-
-// List-dot color alternates between the two soft accent tones across the
-// areas / audience / afterward lists so a long list doesn't read as flat.
-const dotStyles = ['bg-sage-deep', 'bg-lavender-deep'];
 
 // Single reusable template driving every /conditions/:slug and
 // /services/:slug page. New categories are added by adding an entry to
@@ -37,7 +32,7 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-60"
+          className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-50"
           aria-hidden="true"
         />
         <motion.div
@@ -83,9 +78,9 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
               <SectionHeading title={areas.heading ?? 'Areas We Commonly Address'} maxWidth="max-w-2xl" />
             </motion.div>
             <div className="grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2">
-              {areas.items.map((item, index) => (
+              {areas.items.map((item) => (
                 <motion.div key={item.title} variants={fadeUp} className="flex gap-3">
-                  <span className={cn('mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage-deep" aria-hidden="true" />
                   <div className="flex flex-col gap-1">
                     <h3 className="text-h4 text-navy-deep">{item.title}</h3>
                     {item.description && <p className="text-body-sm text-muted">{item.description}</p>}
@@ -114,9 +109,9 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
               <SectionHeading title={audience.heading} description={audience.intro} maxWidth="max-w-2xl" />
             </motion.div>
             <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
-              {audience.items.map((item, index) => (
+              {audience.items.map((item) => (
                 <motion.li key={item.label} variants={fadeUp} className="flex items-center gap-3 text-body text-charcoal">
-                  <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-deep" aria-hidden="true" />
                   {item.path ? (
                     <Link to={item.path} className="underline-offset-4 transition-colors hover:text-navy hover:underline">
                       {item.label}
@@ -171,9 +166,9 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
               <SectionHeading title={afterward.heading} description={afterward.intro} maxWidth="max-w-2xl" />
             </motion.div>
             <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
-              {afterward.items.map((item, index) => (
+              {afterward.items.map((item) => (
                 <motion.li key={item.label} variants={fadeUp} className="flex items-center gap-3 text-body text-charcoal">
-                  <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', dotStyles[index % dotStyles.length])} aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-deep" aria-hidden="true" />
                   {item.path ? (
                     <Link to={item.path} className="underline-offset-4 transition-colors hover:text-navy hover:underline">
                       {item.label}

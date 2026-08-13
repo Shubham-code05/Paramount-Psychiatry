@@ -21,7 +21,7 @@ export default function DrHero() {
           className="flex flex-col gap-6 lg:col-span-7"
         >
           <Breadcrumbs
-            items={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/about' }, { label: 'Dr. Pooja Tandon' }]}
+            items={[{ label: 'Home', path: '/' }, { label: 'About', path: '/about' }, { label: 'Dr. Pooja Tandon' }]}
           />
           <span className="text-eyebrow uppercase text-sage-deep font-semibold">{drHero.eyebrow}</span>
           <h1 className="text-display text-navy-deep">{drHero.heading}</h1>

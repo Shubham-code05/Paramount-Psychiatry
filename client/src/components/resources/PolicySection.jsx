@@ -7,7 +7,7 @@ import { fadeUp } from '../../lib/motion';
 
 // One named, anchorable policy block (Communication, Appointments, Privacy,
 // etc.) on the Practice Policies page. `id` becomes the section's anchor so
-// links like /patient-resources/practice-policies#privacy work.
+// links like /practice-policies#privacy work.
 export default function PolicySection({ id, heading, paragraphs, link, background = 'white' }) {
   const shouldReduceMotion = useReducedMotion();
 

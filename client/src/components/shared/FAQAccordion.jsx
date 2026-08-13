@@ -30,7 +30,10 @@ function AccordionItem({ id, question, answer, isOpen, onToggle }) {
           <ChevronDown
             size={18}
             aria-hidden="true"
-            className={cn('shrink-0 text-sage-deep transition-transform duration-300 ease-calm', isOpen && 'rotate-180')}
+            className={cn(
+              'shrink-0 transition-[transform,color] duration-300 ease-calm',
+              isOpen ? 'rotate-180 text-lavender-deep' : 'text-sage-deep',
+            )}
           />
         </button>
       </h3>

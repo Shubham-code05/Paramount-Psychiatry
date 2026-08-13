@@ -5,10 +5,6 @@ import SectionHeading from '../ui/SectionHeading';
 import { comprehensiveCare } from '../../data/aboutPage';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
-// The section itself is sage-tinted, so the pill rotation skips sage here
-// (it would blend into the background) and rotates white/blue/lavender instead.
-const pillStyles = ['bg-white-warm', 'bg-blue-soft', 'bg-lavender-soft'];
-
 export default function ComprehensiveCare() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -39,11 +35,11 @@ export default function ComprehensiveCare() {
           variants={staggerContainer}
           className="flex flex-wrap gap-3"
         >
-          {comprehensiveCare.conditions.map((condition, index) => (
+          {comprehensiveCare.conditions.map((condition) => (
             <motion.span
               key={condition}
               variants={fadeUp}
-              className={`rounded-full border border-border px-4 py-1.5 text-body-sm text-charcoal ${pillStyles[index % pillStyles.length]}`}
+              className="rounded-full border border-border bg-white-warm px-4 py-1.5 text-body-sm text-charcoal"
             >
               {condition}
             </motion.span>

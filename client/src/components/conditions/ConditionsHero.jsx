@@ -18,7 +18,7 @@ export default function ConditionsHero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-60"
+        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-50"
         aria-hidden="true"
       />
 

@@ -17,18 +17,20 @@ const columns = [
   {
     heading: 'Care',
     links: [
-      { label: 'Conditions', path: '/conditions' },
+      { label: 'Conditions We Treat', path: '/conditions' },
       { label: 'Clinical Services', path: '/services/clinical-services' },
       { label: 'Evaluation Services', path: '/services/evaluation-services' },
+      { label: 'Mental Health Learning Center', path: '/learning-center' },
     ],
   },
   {
     heading: 'Information',
     links: [
       { label: 'Insurance & Fees', path: '/insurance-fees' },
-      { label: 'Practice Policies', path: '/patient-resources/practice-policies' },
+      { label: 'Practice Policies', path: '/practice-policies' },
       { label: 'FAQs', path: '/faqs' },
       { label: 'Patient Resources', path: '/patient-resources' },
+      { label: 'Contact Us', path: '/contact' },
       { label: 'Appointment Requests', path: '/appointment' },
     ],
   },
@@ -104,11 +106,12 @@ export default function Footer() {
           <p className="text-caption text-white/60">
             &copy; {year} {site.name}. All rights reserved.
           </p>
-          <div className="flex gap-5">
-            <Link to="/patient-resources/practice-policies#privacy" className="text-caption text-white/60 hover:text-white transition-colors">
+          <div className="flex items-center gap-5">
+            <Link to="/practice-policies#privacy" className="text-caption text-white/60 hover:text-white transition-colors">
               Privacy
             </Link>
-            <Link to="/patient-resources/practice-policies" className="text-caption text-white/60 hover:text-white transition-colors">
+            <span className="h-1 w-1 rounded-full bg-lavender-accent" aria-hidden="true" />
+            <Link to="/practice-policies" className="text-caption text-white/60 hover:text-white transition-colors">
               Terms
             </Link>
           </div>

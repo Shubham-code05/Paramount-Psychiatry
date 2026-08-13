@@ -18,7 +18,7 @@ export default function AboutHero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-60"
+        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-50"
         aria-hidden="true"
       />
 
@@ -28,7 +28,7 @@ export default function AboutHero() {
         variants={fadeUp}
         className="relative flex max-w-2xl flex-col gap-6"
       >
-        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About Us' }]} />
+        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About' }]} />
         <span className="text-eyebrow uppercase text-sage-deep font-semibold">{aboutHero.eyebrow}</span>
         <h1 className="text-display text-navy-deep">{aboutHero.headline}</h1>
         <p className="text-body-lg text-muted">{aboutHero.subcopy}</p>

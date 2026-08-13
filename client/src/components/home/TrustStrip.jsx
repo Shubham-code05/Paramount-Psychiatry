@@ -3,6 +3,10 @@ import Section from '../ui/Section';
 import { trustStrip } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
+// Icon color cycles through the three supporting pastels — sage, blue,
+// lavender — in equal rotation, same treatment for all three.
+const iconColors = ['text-sage-deep', 'text-navy', 'text-lavender-deep'];
+
 export default function TrustStrip() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -15,9 +19,9 @@ export default function TrustStrip() {
         variants={staggerContainer}
         className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
       >
-        {trustStrip.map(({ icon: Icon, label }) => (
+        {trustStrip.map(({ icon: Icon, label }, index) => (
           <motion.li key={label} variants={fadeUp} className="flex items-center gap-2 text-body-sm text-charcoal">
-            <Icon size={18} className="text-sage-deep" aria-hidden="true" />
+            <Icon size={18} className={iconColors[index % iconColors.length]} aria-hidden="true" />
             {label}
           </motion.li>
         ))}

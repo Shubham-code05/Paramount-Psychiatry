@@ -1,27 +1,37 @@
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/cn';
 
-// Text-based wordmark placeholder. Replace with:
-//   <img src="/images/paramount-logo.svg" alt="Paramount Psychiatry" />
-// once a real logo asset is available — no other call sites need to change.
+// Footer (dark background) keeps the original text wordmark — the approved
+// logo artwork has an opaque cream backdrop that would box awkwardly on navy.
 export default function Logo({ className, dark = false }) {
+  if (dark) {
+    return (
+      <Link
+        to="/"
+        className={cn('flex flex-col leading-none font-display select-none', className)}
+        aria-label="Paramount Psychiatry — home"
+      >
+        <span className="text-lg md:text-xl tracking-[0.14em] font-semibold text-white">
+          PARAMOUNT
+        </span>
+        <span className="text-[0.6rem] md:text-xs tracking-[0.32em] font-medium mt-0.5 text-white/70">
+          PSYCHIATRY
+        </span>
+      </Link>
+    );
+  }
+
   return (
     <Link
       to="/"
-      className={cn('flex flex-col leading-none font-display select-none', className)}
+      className={cn('flex items-center select-none', className)}
       aria-label="Paramount Psychiatry — home"
     >
-      <span className={cn('text-lg md:text-xl tracking-[0.14em] font-semibold', dark ? 'text-white' : 'text-navy-deep')}>
-        PARAMOUNT
-      </span>
-      <span
-        className={cn(
-          'text-[0.6rem] md:text-xs tracking-[0.32em] font-medium mt-0.5',
-          dark ? 'text-white/70' : 'text-sage-deep',
-        )}
-      >
-        PSYCHIATRY
-      </span>
+      <img
+        src="/images/paramountlogo1.jpeg"
+        alt=""
+        className="h-12 w-auto object-contain md:h-14"
+      />
     </Link>
   );
 }

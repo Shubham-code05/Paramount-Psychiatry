@@ -5,8 +5,17 @@ import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import { conditionCategories } from '../../data/conditions';
 import { staggerContainer, fadeUp } from '../../lib/motion';
+import { cn } from '../../lib/cn';
 
 const [featured, ...rest] = conditionCategories;
+
+// Icon-circle color cycles through the three supporting pastels — sage,
+// blue, lavender — in equal rotation, same treatment for all three.
+const iconStyles = [
+  { bg: 'bg-sage-soft', text: 'text-sage-deep' },
+  { bg: 'bg-blue-soft', text: 'text-navy' },
+  { bg: 'bg-lavender-soft', text: 'text-lavender-deep' },
+];
 
 export default function ConditionsOverviewGrid() {
   const shouldReduceMotion = useReducedMotion();
@@ -55,26 +64,29 @@ export default function ConditionsOverviewGrid() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((category) => (
-            <motion.div key={category.slug} variants={fadeUp} className="h-full">
-              <Link
-                to={`/conditions/${category.slug}`}
-                className="group flex h-full flex-col gap-4 rounded-(--radius-card) border border-border bg-white p-6 shadow-soft transition-all duration-300 ease-calm hover:-translate-y-0.5 hover:shadow-elevated"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sage-soft text-sage-deep">
-                  <category.icon size={20} strokeWidth={1.5} aria-hidden="true" />
-                </span>
-                <div className="flex flex-1 flex-col gap-1.5">
-                  <h3 className="text-h4 text-navy-deep">{category.title}</h3>
-                  <p className="text-body-sm text-muted">{category.description}</p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-navy">
-                  Learn More
-                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </span>
-              </Link>
-            </motion.div>
-          ))}
+          {rest.map((category, index) => {
+            const iconStyle = iconStyles[index % iconStyles.length];
+            return (
+              <motion.div key={category.slug} variants={fadeUp} className="h-full">
+                <Link
+                  to={`/conditions/${category.slug}`}
+                  className="group flex h-full flex-col gap-4 rounded-(--radius-card) border border-border bg-white p-6 shadow-soft transition-all duration-300 ease-calm hover:-translate-y-0.5 hover:shadow-elevated"
+                >
+                  <span className={cn('flex h-11 w-11 items-center justify-center rounded-full', iconStyle.bg, iconStyle.text)}>
+                    <category.icon size={20} strokeWidth={1.5} aria-hidden="true" />
+                  </span>
+                  <div className="flex flex-1 flex-col gap-1.5">
+                    <h3 className="text-h4 text-navy-deep">{category.title}</h3>
+                    <p className="text-body-sm text-muted">{category.description}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-navy">
+                    Learn More
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </Section>

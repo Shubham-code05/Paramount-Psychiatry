@@ -9,6 +9,8 @@ import ServicesPage from '../pages/ServicesPage';
 import ServiceDetailPage from '../pages/ServiceDetailPage';
 import InsuranceFeesPage from '../pages/InsuranceFeesPage';
 import PracticePoliciesPage from '../pages/PracticePoliciesPage';
+import LearningCenterPage from '../pages/LearningCenterPage';
+import LearningCenterCategoryPage from '../pages/LearningCenterCategoryPage';
 import FaqsPage from '../pages/FaqsPage';
 import PatientResourcesPage from '../pages/PatientResourcesPage';
 import NewPatientsPage from '../pages/NewPatientsPage';
@@ -31,18 +33,23 @@ const router = createBrowserRouter([
       { path: '/services', element: <ServicesPage /> },
       { path: '/services/:slug', element: <ServiceDetailPage /> },
       { path: '/insurance-fees', element: <InsuranceFeesPage /> },
+      { path: '/practice-policies', element: <PracticePoliciesPage /> },
+      { path: '/learning-center', element: <LearningCenterPage /> },
+      // FAQs is a Learning Center category, but reuses the existing FAQs
+      // page/content rather than a placeholder — see data/learningCenter.js.
+      { path: '/learning-center/faqs', element: <Navigate to="/faqs" replace /> },
+      { path: '/learning-center/:slug', element: <LearningCenterCategoryPage /> },
       { path: '/faqs', element: <FaqsPage /> },
       { path: '/patient-resources', element: <PatientResourcesPage /> },
       { path: '/patient-resources/new-patients', element: <NewPatientsPage /> },
       { path: '/patient-resources/prepare-for-your-visit', element: <PrepareForVisitPage /> },
       { path: '/patient-resources/what-to-expect', element: <WhatToExpectPage /> },
       { path: '/patient-resources/telepsychiatry', element: <TelepsychiatryPage /> },
-      { path: '/patient-resources/practice-policies', element: <PracticePoliciesPage /> },
       { path: '/appointment', element: <AppointmentPage /> },
       { path: '/contact', element: <ContactPage /> },
-      // Phase 6 restructure: Practice Policies and Patient Information now
-      // live under Patient Resources. Redirects keep old links working.
-      { path: '/practice-policies', element: <Navigate to="/patient-resources/practice-policies" replace /> },
+      // Client-feedback update: Practice Policies is now a primary nav item
+      // at /practice-policies. Redirects keep pre-existing links working.
+      { path: '/patient-resources/practice-policies', element: <Navigate to="/practice-policies" replace /> },
       { path: '/patient-information', element: <Navigate to="/patient-resources" replace /> },
       { path: '*', element: <NotFoundPage /> },
     ],

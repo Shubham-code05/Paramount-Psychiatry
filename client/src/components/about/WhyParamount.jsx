@@ -8,7 +8,7 @@ export default function WhyParamount() {
   const Icon = whyParamount.icon;
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="lavender-soft">
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
         whileInView="visible"

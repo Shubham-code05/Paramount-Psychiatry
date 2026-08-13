@@ -4,17 +4,18 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../shared/Logo';
 import AppointmentButton from '../shared/AppointmentButton';
-import Container from '../ui/Container';
+import AboutMenuPanel from './AboutMenuPanel';
 import ConditionsMegaMenuPanel from './ConditionsMegaMenuPanel';
-import ServicesMenuPanel from './ServicesMenuPanel';
+import LearningCenterMenuPanel from './LearningCenterMenuPanel';
 import { primaryNav } from '../../data/navigation';
 import { cn } from '../../lib/cn';
 
 // Panels keyed by the primaryNav item's `megaMenu` value. Desktop dropdown
-// width varies since the Services panel only has two links.
+// width varies with each panel's content.
 const megaMenuPanels = {
+  about: { Panel: AboutMenuPanel, width: 'w-80 max-w-[90vw]' },
   conditions: { Panel: ConditionsMegaMenuPanel, width: 'w-2xl max-w-[90vw]' },
-  services: { Panel: ServicesMenuPanel, width: 'w-72 max-w-[90vw]' },
+  learningCenter: { Panel: LearningCenterMenuPanel, width: 'w-2xl max-w-[90vw]' },
 };
 
 export default function Navbar() {
@@ -72,11 +73,22 @@ export default function Navbar() {
         scrolled ? 'border-border shadow-soft' : 'border-transparent',
       )}
     >
-      <Container className="flex items-center justify-between py-3">
-        <Logo />
+      {/*
+        The desktop nav (6 items + CTA) needs ~1370px of unbroken content
+        width at the current type scale — wider than the site's shared
+        Container (max-w-340 = 1360px, shared with narrower body content).
+        So this row uses its own wider cap (max-w-360 = 1440px) instead of
+        <Container>, and the desktop nav only renders at min-[1440px] —
+        below that, content would wrap (verified empirically), so the
+        existing hamburger menu takes over instead, exactly as it already
+        does on tablet/mobile.
+      */}
+      <div className="mx-auto flex w-full max-w-360 items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
+        <Logo className="shrink-0" />
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-8">
-          {primaryNav.map((item) => {
+        <div className="hidden min-[1440px]:flex items-center gap-12">
+          <nav aria-label="Primary" className="flex shrink-0 items-center gap-8">
+            {primaryNav.map((item) => {
             if (!item.megaMenu) {
               return (
                 <NavLink
@@ -148,13 +160,12 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <AppointmentButton size="sm" />
+          <AppointmentButton size="sm" className="shrink-0" />
         </div>
 
         <button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center rounded-full p-2 text-navy-deep hover:bg-navy/5 transition-colors"
+          className="min-[1440px]:hidden inline-flex items-center justify-center rounded-full p-2 text-navy-deep hover:bg-navy/5 transition-colors"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -162,13 +173,13 @@ export default function Navbar() {
         >
           {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
-      </Container>
+      </div>
 
       <div
         id="mobile-menu"
         inert={!open}
         className={cn(
-          'lg:hidden overflow-y-auto border-t border-border bg-white-warm transition-[max-height,opacity] duration-300 ease-calm',
+          'min-[1440px]:hidden overflow-y-auto border-t border-border bg-white-warm transition-[max-height,opacity] duration-300 ease-calm',
           open ? 'max-h-[calc(100vh-4rem)] opacity-100' : 'max-h-0 opacity-0',
         )}
       >

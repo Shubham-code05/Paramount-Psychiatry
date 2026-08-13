@@ -46,7 +46,7 @@ export const resourceGrid = [
     icon: ShieldCheck,
     title: 'Practice Policies',
     description: 'Information on communication, appointments, and privacy.',
-    path: '/patient-resources/practice-policies',
+    path: '/practice-policies',
   },
   {
     icon: HelpCircle,

@@ -4,7 +4,10 @@ import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import { clinicalAreas } from '../../data/drTandonPage';
 import { fadeUp, staggerContainer } from '../../lib/motion';
+import { cn } from '../../lib/cn';
 
+// Pill background cycles through the three supporting pastels — sage,
+// blue, lavender — in equal rotation, same treatment for all three.
 const pillStyles = ['bg-sage-soft', 'bg-blue-soft', 'bg-lavender-soft'];
 
 export default function ClinicalAreas() {
@@ -26,7 +29,10 @@ export default function ClinicalAreas() {
             <motion.span
               key={area}
               variants={fadeUp}
-              className={`rounded-full border border-border px-4 py-1.5 text-body-sm text-navy-deep ${pillStyles[index % pillStyles.length]}`}
+              className={cn(
+                'rounded-full border border-border px-4 py-1.5 text-body-sm text-navy-deep',
+                pillStyles[index % pillStyles.length],
+              )}
             >
               {area}
             </motion.span>

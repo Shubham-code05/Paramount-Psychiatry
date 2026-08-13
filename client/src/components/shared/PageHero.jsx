@@ -17,7 +17,7 @@ export default function PageHero({ eyebrow, title, intro, crumbs }) {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-60"
+        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-50"
         aria-hidden="true"
       />
       <motion.div

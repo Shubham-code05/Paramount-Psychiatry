@@ -1,8 +1,8 @@
-// Full future site navigation structure (data foundation only).
-// The Phase 1 Navbar renders `primaryNav` — a flat, top-level list.
-// `navigation` holds the richer nested structure for later mega-menu work,
-// reconciling the site map (About / Conditions / Services split) with the
-// routes defined in src/routes.
+// Full site navigation structure (data foundation only — not imported by the
+// Navbar, which renders the flat `primaryNav` below plus its mega-menu data).
+// This nested tree documents the complete site map, including pages that sit
+// outside the primary nav but must keep working (Services, the legacy
+// Patient Resources hub) per the client-approved IA (client-feedback update).
 
 export const navigation = [
   {
@@ -10,11 +10,11 @@ export const navigation = [
     path: '/',
   },
   {
-    label: 'About Us',
+    label: 'About',
     path: '/about',
     children: [
-      { label: 'About Paramount Psychiatry', path: '/about/practice' },
-      { label: 'About Dr. Tandon', path: '/about/dr-pooja-tandon' },
+      { label: 'About Paramount Psychiatry', path: '/about' },
+      { label: 'Meet Dr. Pooja Tandon', path: '/about/dr-pooja-tandon' },
     ],
   },
   {
@@ -41,31 +41,30 @@ export const navigation = [
     ],
   },
   {
-    label: 'Services',
-    path: '/services',
-    children: [
-      { label: 'Clinical Services', path: '/services/clinical-services' },
-      { label: 'Evaluation Services', path: '/services/evaluation-services' },
-    ],
-  },
-  {
     label: 'Insurance & Fees',
     path: '/insurance-fees',
   },
   {
-    label: 'Patient Resources',
-    path: '/patient-resources',
-    children: [
-      { label: 'New Patients', path: '/patient-resources/new-patients' },
-      { label: 'Preparing for Your Visit', path: '/patient-resources/prepare-for-your-visit' },
-      { label: 'What to Expect', path: '/patient-resources/what-to-expect' },
-      { label: 'Telepsychiatry', path: '/patient-resources/telepsychiatry' },
-      { label: 'Practice Policies', path: '/patient-resources/practice-policies' },
-    ],
+    label: 'Practice Policies',
+    path: '/practice-policies',
   },
   {
-    label: 'Frequently Asked Questions',
-    path: '/faqs',
+    label: 'Mental Health Learning Center',
+    path: '/learning-center',
+    children: [
+      { label: 'Understanding Mental Health', path: '/learning-center/understanding-mental-health' },
+      { label: 'Anxiety & Stress', path: '/learning-center/anxiety-stress' },
+      { label: 'Depression & Mood', path: '/learning-center/depression-mood' },
+      { label: 'ADHD & Executive Function', path: '/learning-center/adhd-executive-function' },
+      { label: 'Sleep & Wellness', path: '/learning-center/sleep-wellness' },
+      { label: 'Trauma & Life Transitions', path: '/learning-center/trauma-life-transitions' },
+      { label: "Women's Mental Health", path: '/learning-center/womens-mental-health' },
+      { label: 'Memory & Cognitive Health', path: '/learning-center/memory-cognitive-health' },
+      { label: 'Geriatric Mental Health', path: '/learning-center/geriatric-mental-health' },
+      { label: 'Treatment & Medication', path: '/learning-center/treatment-medication' },
+      { label: 'Therapy & Coping', path: '/learning-center/therapy-coping' },
+      { label: 'Frequently Asked Questions', path: '/faqs' },
+    ],
   },
   {
     label: 'Contact Us',
@@ -75,18 +74,61 @@ export const navigation = [
     label: 'Make an Appointment',
     path: '/appointment',
   },
+  // Not part of the primary nav, but still live routes — linked from the
+  // Footer (Services) and reachable directly (Patient Resources).
+  {
+    label: 'Services',
+    path: '/services',
+    children: [
+      { label: 'Clinical Services', path: '/services/clinical-services' },
+      { label: 'Evaluation Services', path: '/services/evaluation-services' },
+    ],
+  },
+  {
+    label: 'Patient Resources',
+    path: '/patient-resources',
+    children: [
+      { label: 'New Patients', path: '/patient-resources/new-patients' },
+      { label: 'Preparing for Your Visit', path: '/patient-resources/prepare-for-your-visit' },
+      { label: 'What to Expect', path: '/patient-resources/what-to-expect' },
+      { label: 'Telepsychiatry', path: '/patient-resources/telepsychiatry' },
+    ],
+  },
 ];
 
-// Flat, top-level list used by the Navbar.
-// `megaMenu` flags the items that open a dropdown panel — 'conditions' for
-// the full conditions mega-menu, 'services' for the small services panel.
+// Flat, top-level list used by the Navbar — client-approved information
+// architecture (client-feedback update). `megaMenu` flags the items that
+// open a dropdown panel: 'about' (2 links), 'conditions' (full mega-menu),
+// 'learningCenter' (12 category links). "Make an Appointment" is rendered
+// separately as the Navbar's primary CTA, not a nav item.
+//
+// Services, the legacy Patient Resources hub, and FAQs are no longer
+// top-level items, but their routes and content are preserved — reachable
+// via the Footer, and (FAQs) via the Learning Center menu — per the
+// regression-safety requirement not to break existing pages.
 export const primaryNav = [
-  { label: 'About', path: '/about' },
-  { label: 'Conditions', path: '/conditions', megaMenu: 'conditions' },
-  { label: 'Services', path: '/services', megaMenu: 'services' },
+  { label: 'About', path: '/about', megaMenu: 'about' },
+  { label: 'Conditions We Treat', path: '/conditions', megaMenu: 'conditions' },
   { label: 'Insurance & Fees', path: '/insurance-fees' },
-  { label: 'Patient Resources', path: '/patient-resources' },
-  { label: 'FAQs', path: '/faqs' },
+  { label: 'Practice Policies', path: '/practice-policies' },
+  { label: 'Mental Health Learning Center', path: '/learning-center', megaMenu: 'learningCenter' },
+  { label: 'Contact Us', path: '/contact' },
+];
+
+// About dropdown — the two subsections the client asked for: the practice
+// overview and Dr. Tandon's dedicated profile page (which now holds her
+// photo/bio — kept off the homepage per the client's direction).
+export const aboutMegaMenu = [
+  {
+    label: 'About Paramount Psychiatry',
+    path: '/about',
+    description: 'Our philosophy, approach to care, and what to expect as a patient.',
+  },
+  {
+    label: 'Meet Dr. Pooja Tandon',
+    path: '/about/dr-pooja-tandon',
+    description: 'Credentials, clinical background, and treatment philosophy.',
+  },
 ];
 
 // Grouped Conditions data for the Navbar mega-menu — organizes the flat

@@ -90,7 +90,7 @@ export const doctor = {
     'Dr. Pooja Tandon, MD is a board-certified adult and geriatric psychiatrist at Paramount Psychiatry.',
     'Her practice focuses on individualized, evidence-based care across mood, anxiety, attention, and life-stage-related concerns, with particular attention to the needs of adult and older-adult patients.',
   ],
-  cta: 'Meet Dr. Tandon',
+  cta: 'Meet Dr. Pooja Tandon',
   ctaLink: '/about/dr-pooja-tandon',
 };
 

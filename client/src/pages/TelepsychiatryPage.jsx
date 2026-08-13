@@ -17,7 +17,7 @@ import {
   resourceGrid,
 } from '../data/patientResources';
 
-const related = resourceGrid.filter((item) => ['/patient-resources/what-to-expect', '/patient-resources/practice-policies'].includes(item.path));
+const related = resourceGrid.filter((item) => ['/patient-resources/what-to-expect', '/practice-policies'].includes(item.path));
 
 export default function TelepsychiatryPage() {
   usePageMeta(telepsychiatrySeo);
