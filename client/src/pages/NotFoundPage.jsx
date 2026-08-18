@@ -1,8 +1,15 @@
 import Section from '../components/ui/Section';
 import SectionHeading from '../components/ui/SectionHeading';
 import Button from '../components/ui/Button';
+import { usePageMeta } from '../hooks/usePageMeta';
+
+const seo = {
+  title: 'Page Not Found | Paramount Psychiatry',
+};
 
 export default function NotFoundPage() {
+  usePageMeta(seo);
+
   return (
     <Section spacing="xl" background="warm">
       <div className="flex flex-col items-start gap-6">

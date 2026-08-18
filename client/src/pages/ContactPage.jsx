@@ -2,9 +2,17 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Section from '../components/ui/Section';
 import SectionHeading from '../components/ui/SectionHeading';
 import AppointmentButton from '../components/shared/AppointmentButton';
+import { usePageMeta } from '../hooks/usePageMeta';
 import site from '../data/site';
 
+const seo = {
+  title: 'Contact Us | Paramount Psychiatry',
+  description: 'Contact Paramount Psychiatry by phone or email, or make an appointment directly through Headway.',
+};
+
 export default function ContactPage() {
+  usePageMeta(seo);
+
   return (
     <Section spacing="xl" background="warm">
       <div className="flex flex-col items-start gap-8">
