@@ -3,6 +3,7 @@ import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
+import Leaf from '../decor/Leaf';
 import { servicesPreview } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
@@ -10,7 +11,15 @@ export default function ServicesPreview() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="sage-soft" className="relative overflow-hidden">
+      <Leaf
+        color="gold"
+        size={20}
+        rotate={-15}
+        opacity={0.35}
+        animate="reveal"
+        className="hidden lg:block absolute top-8 right-[8%] xl:right-[12%]"
+      />
       <div className="flex flex-col gap-10">
         <SectionHeading
           eyebrow={servicesPreview.eyebrow}

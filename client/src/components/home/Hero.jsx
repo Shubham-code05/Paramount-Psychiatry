@@ -4,6 +4,7 @@ import Button from '../ui/Button';
 import AppointmentButton from '../shared/AppointmentButton';
 import { hero } from '../../data/home';
 import { fadeUp } from '../../lib/motion';
+import LeafCluster from '../decor/LeafCluster';
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -17,7 +18,6 @@ export default function Hero() {
           variants={fadeUp}
           className="flex flex-col gap-6"
         >
-          <span className="text-eyebrow uppercase text-sage-deep font-semibold">{hero.eyebrow}</span>
           <h1 className="text-display text-navy-deep">{hero.headline}</h1>
           <p className="text-body-lg text-muted max-w-xl">{hero.subcopy}</p>
           <div className="flex flex-wrap gap-3 pt-2">
@@ -35,6 +35,7 @@ export default function Hero() {
           className="relative mx-auto flex aspect-[2/1] w-full max-w-56 items-center justify-center sm:max-w-64 lg:aspect-square lg:max-w-md"
         >
           <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft lg:-bottom-4 lg:-left-4 lg:h-20 lg:w-20" aria-hidden="true" />
+          <LeafCluster className="hidden sm:block absolute -top-4 -right-2 lg:-top-6 lg:right-0" />
           <div className="absolute inset-3 lg:inset-6 rounded-[60%_40%_32%_68%/62%_36%_64%_38%] bg-sage-soft" aria-hidden="true" />
           <div className="absolute inset-0 rounded-[38%_62%_64%_36%/42%_68%_32%_58%] bg-blue-soft opacity-80" aria-hidden="true" />
           <div className="absolute inset-6 lg:inset-12 rounded-4xl bg-white-warm shadow-elevated" aria-hidden="true" />

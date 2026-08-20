@@ -2,21 +2,31 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import Button from '../ui/Button';
 import AppointmentButton from './AppointmentButton';
+import LeafCluster from '../decor/LeafCluster';
 import { fadeUp } from '../../lib/motion';
 
 // Generic closing CTA reused across every page on the site — keeps the
 // "Make an Appointment" / "Contact Us" pairing and the Headway link
 // centralized in one place. `body` is optional (the homepage uses it for a
-// short supporting line; most pages omit it).
+// short supporting line; most pages omit it). `decorate` opts into the
+// homepage's subtle botanical corner accents — off by default so every
+// other page's CTA stays pixel-identical.
 export default function FinalCta({
   eyebrow = 'Ready to take the next step?',
   heading = 'Your mental health deserves thoughtful care.',
   body,
+  decorate = false,
 }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="navy">
+    <Section spacing="lg" background="navy" className={decorate ? 'relative overflow-hidden' : undefined}>
+      {decorate && (
+        <>
+          <LeafCluster animate="reveal" className="hidden md:block absolute top-8 left-[4%] lg:left-[8%]" />
+          <LeafCluster animate="reveal" flip className="hidden md:block absolute bottom-8 right-[4%] lg:right-[8%]" />
+        </>
+      )}
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
         whileInView="visible"

@@ -16,6 +16,10 @@
   --color-navy-deep: #102a43;
   --color-blue-soft: #dceaf2;
   --color-blue-soft-hover: #c9e1ec;
+  /* Blue-accent mirrors the lavender-accent pattern: a visible, slightly
+     deeper blue for small decorative marks (leaf accents) — blue-soft
+     stays reserved for pale wash backgrounds. */
+  --color-blue-accent: #b0c0d0;
   --color-sage: #a8bdae;
   --color-sage-hover: #97aa9d;
   --color-sage-soft: #e7eee9;
@@ -29,6 +33,9 @@
   --color-lavender-soft: #ece7f5;
   --color-lavender-accent: #c9bfe0;
   --color-lavender-deep: #7c6a9e;
+  /* Gold is a small-accent-only color, echoing the logo's gold ring/dot —
+     never a background or primary UI color. */
+  --color-gold: #d4a83a;
   --color-ivory: #f8f6f1;
   --color-white-warm: #fcfbf8;
   --color-charcoal: #24313a;

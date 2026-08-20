@@ -24,7 +24,7 @@ export default function HomePage() {
       <ServicesPreview />
       <AccessSection />
       <InsurancePreview />
-      <FinalCta eyebrow={null} body={finalCta.body} />
+      <FinalCta eyebrow={null} body={finalCta.body} decorate />
     </>
   );
 }

@@ -2,11 +2,10 @@
 // Copy is intentionally conservative: no invented credentials, awards,
 // statistics, testimonials, or insurance names beyond what has been supplied.
 
-import { HeartPulse, Wind, Users2, ShieldCheck, Stethoscope, Sparkles, Laptop2, ClipboardList, FileText } from 'lucide-react';
+import { HeartPulse, Users2, ShieldCheck, Stethoscope, Sparkles, Laptop2, ClipboardList, FileText } from 'lucide-react';
 import coreValues from './values';
 
 export const hero = {
-  eyebrow: 'Paramount Psychiatry',
   headline: 'Where compassionate listening meets evidence-based psychiatry.',
   subcopy:
     'Thoughtful, personalized psychiatric care designed around the whole person—not just the symptoms.',
@@ -135,13 +134,12 @@ export const servicesPreview = {
 export const access = {
   eyebrow: 'Access to Care',
   heading: 'Convenient, secure access to psychiatric care.',
-  body: 'Paramount Psychiatry offers in-person care in New Jersey along with secure telepsychiatry, including telepsychiatry availability in New York where applicable — designed to make consistent, ongoing care more convenient.',
+  body: 'Paramount Psychiatry provides both in-person care and secure telepsychiatry services in New Jersey and New York — designed to make consistent, ongoing care more convenient.',
   cta: 'Learn More',
   ctaLink: '/contact',
   points: [
-    { icon: HeartPulse, label: 'In-person care in New Jersey' },
-    { icon: Laptop2, label: 'Secure telepsychiatry' },
-    { icon: Wind, label: 'New York telepsychiatry, where applicable' },
+    { icon: HeartPulse, label: 'In-person care in New Jersey and New York' },
+    { icon: Laptop2, label: 'Secure telepsychiatry in New Jersey and New York' },
   ],
 };
 

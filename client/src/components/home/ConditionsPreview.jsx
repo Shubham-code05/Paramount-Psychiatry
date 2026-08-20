@@ -1,3 +1,4 @@
+import { Leaf } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
@@ -5,6 +6,10 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import { conditionsPreview } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
+
+// Cycled per card for a subtle, varied botanical accent — never a strong
+// per-card background color, just a small tinted leaf mark.
+const accentColors = ['text-sage', 'text-blue-accent', 'text-lavender-accent'];
 
 export default function ConditionsPreview() {
   const shouldReduceMotion = useReducedMotion();
@@ -30,9 +35,14 @@ export default function ConditionsPreview() {
           variants={staggerContainer}
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {conditionsPreview.items.map((item) => (
+          {conditionsPreview.items.map((item, index) => (
             <motion.div key={item.title} variants={fadeUp}>
-              <Card variant="elevated" className="h-full">
+              <Card variant="elevated" className="h-full relative">
+                <Leaf
+                  className={`absolute top-5 right-5 opacity-40 ${accentColors[index % accentColors.length]}`}
+                  size={16}
+                  aria-hidden="true"
+                />
                 <h3 className="text-h4">{item.title}</h3>
                 <p className="text-body-sm text-muted mt-2">{item.description}</p>
               </Card>

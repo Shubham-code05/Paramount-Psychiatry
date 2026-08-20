@@ -4,12 +4,22 @@ import Button from '../ui/Button';
 import { doctor } from '../../data/home';
 import site from '../../data/site';
 import { fadeUp } from '../../lib/motion';
+import LeafCluster from '../decor/LeafCluster';
 
 export default function DoctorSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="warm">
+    <Section spacing="lg" background="warm" className="relative overflow-hidden">
+      <LeafCluster
+        animate="reveal"
+        className="hidden lg:block absolute top-10 left-[6%] xl:left-[10%]"
+      />
+      <LeafCluster
+        animate="reveal"
+        flip
+        className="hidden lg:block absolute bottom-10 right-[6%] xl:right-[10%]"
+      />
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
         whileInView="visible"
