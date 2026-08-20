@@ -19,7 +19,7 @@ export default function ConditionsMegaMenuPanel({ variant = 'desktop', onNavigat
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  onClick={onNavigate}
+                  onClick=                                                                    {onNavigate}                                                                                                                                                                                                                                                                                                                                                      
                   className="text-body-sm text-charcoal hover:text-navy transition-colors"
                 >
                   {item.label}

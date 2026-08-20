@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import Logo from '../shared/Logo';
 import AppointmentButton from '../shared/AppointmentButton';
 import AboutMenuPanel from './AboutMenuPanel';
 import ConditionsMegaMenuPanel from './ConditionsMegaMenuPanel';
@@ -69,8 +68,8 @@ export default function Navbar() {
     <header
       ref={navRef}
       className={cn(
-        'sticky top-0 z-50 bg-white-warm/95 backdrop-blur border-b transition-shadow duration-300',
-        scrolled ? 'border-border shadow-soft' : 'border-transparent',
+        'sticky top-0 z-50 bg-navy-deep text-white backdrop-blur border-b transition-shadow duration-300',
+        scrolled ? 'border-white/10 shadow-soft' : 'border-transparent',
       )}
     >
       {/*
@@ -84,7 +83,13 @@ export default function Navbar() {
         does on tablet/mobile.
       */}
       <div className="mx-auto flex w-full max-w-360 items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
-        <Logo className="shrink-0" />
+        <Link to="/" className="flex shrink-0 items-center select-none" aria-label="Paramount Psychiatry — home">
+          <img
+            src="/images/logo.png"
+            alt="Paramount Psychiatry"
+            className="h-auto w-32 object-contain md:w-36"
+          />
+        </Link>
 
         <div className="hidden min-[1440px]:flex items-center gap-12">
           <nav aria-label="Primary" className="flex shrink-0 items-center gap-8">
@@ -96,8 +101,8 @@ export default function Navbar() {
                   to={item.path}
                   className={({ isActive }) =>
                     cn(
-                      'text-body-sm font-medium text-charcoal hover:text-navy transition-colors duration-200',
-                      isActive && 'text-navy',
+                      'text-body-sm font-medium text-white/80 hover:text-white transition-colors duration-200',
+                      isActive && 'text-white',
                     )
                   }
                 >
@@ -124,8 +129,8 @@ export default function Navbar() {
                 <button
                   type="button"
                   className={cn(
-                    'flex items-center gap-1 text-body-sm font-medium text-charcoal hover:text-navy transition-colors duration-200',
-                    isOpen && 'text-navy',
+                    'flex items-center gap-1 text-body-sm font-medium text-white/80 hover:text-white transition-colors duration-200',
+                    isOpen && 'text-white',
                   )}
                   aria-expanded={isOpen}
                   aria-haspopup="true"
@@ -160,12 +165,12 @@ export default function Navbar() {
           })}
         </nav>
 
-          <AppointmentButton size="sm" className="shrink-0" />
+          <AppointmentButton variant="secondary" size="sm" className="shrink-0" />
         </div>
 
         <button
           type="button"
-          className="min-[1440px]:hidden inline-flex items-center justify-center rounded-full p-2 text-navy-deep hover:bg-navy/5 transition-colors"
+          className="min-[1440px]:hidden inline-flex items-center justify-center rounded-full p-2 text-white hover:bg-white/10 transition-colors"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"

@@ -1,13 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { UserRound } from 'lucide-react';
 import Section from '../ui/Section';
 import Breadcrumbs from '../shared/Breadcrumbs';
 import { drHero } from '../../data/drTandonPage';
 import { fadeUp } from '../../lib/motion';
+import DrPooja from '../../assets/DrPooja.jpeg';
 
-// Portrait placeholder — swap the frame's contents for:
-//   <img src="/images/dr-pooja-tandon.jpg" alt="Dr. Pooja Tandon, MD" className="h-full w-full object-cover rounded-4xl" />
-// once real photography is available. No other markup needs to change.
 export default function DrHero() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -34,10 +31,11 @@ export default function DrHero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto aspect-4/5 w-full max-w-sm lg:col-span-5"
         >
-          <div className="absolute inset-0 rounded-4xl bg-sage-soft" />
-          <div className="absolute inset-4 flex items-center justify-center rounded-4xl bg-white-warm shadow-elevated">
-            <UserRound size={110} className="text-sage/60" strokeWidth={1} aria-hidden="true" />
-          </div>
+          <img
+            src={DrPooja}
+            alt="Dr. Pooja Tandon, MD"
+            className="h-full w-full rounded-4xl object-cover shadow-elevated"
+          />
         </motion.div>
       </div>
     </Section>

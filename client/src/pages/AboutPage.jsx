@@ -1,8 +1,5 @@
 import AboutHero from '../components/about/AboutHero';
-import Philosophy from '../components/about/Philosophy';
-import ComprehensiveCare from '../components/about/ComprehensiveCare';
-import WholePersonCare from '../components/about/WholePersonCare';
-import BeyondMedication from '../components/about/BeyondMedication';
+import AboutIntro from '../components/about/AboutIntro';
 import MissionVision from '../components/about/MissionVision';
 import CoreValues from '../components/about/CoreValues';
 import WhyParamount from '../components/about/WhyParamount';
@@ -16,10 +13,7 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
-      <Philosophy />
-      <ComprehensiveCare />
-      <WholePersonCare />
-      <BeyondMedication />
+      <AboutIntro />
       <MissionVision />
       <CoreValues />
       <WhyParamount />

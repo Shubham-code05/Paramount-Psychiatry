@@ -32,14 +32,18 @@ export default function Hero() {
           initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto aspect-[2/1] w-full max-w-56 sm:max-w-64 lg:aspect-square lg:max-w-md"
-          aria-hidden="true"
+          className="relative mx-auto flex aspect-[2/1] w-full max-w-56 items-center justify-center sm:max-w-64 lg:aspect-square lg:max-w-md"
         >
-          <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft lg:-bottom-4 lg:-left-4 lg:h-20 lg:w-20" />
-          <div className="absolute inset-3 lg:inset-6 rounded-[60%_40%_32%_68%/62%_36%_64%_38%] bg-sage-soft" />
-          <div className="absolute inset-0 rounded-[38%_62%_64%_36%/42%_68%_32%_58%] bg-blue-soft opacity-80" />
-          <div className="absolute inset-6 lg:inset-12 rounded-4xl bg-white-warm shadow-elevated" />
-          <div className="absolute inset-8 lg:inset-16 rounded-[42%_58%_38%_62%/58%_42%_58%_42%] bg-linear-to-br from-white to-ivory" />
+          <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft lg:-bottom-4 lg:-left-4 lg:h-20 lg:w-20" aria-hidden="true" />
+          <div className="absolute inset-3 lg:inset-6 rounded-[60%_40%_32%_68%/62%_36%_64%_38%] bg-sage-soft" aria-hidden="true" />
+          <div className="absolute inset-0 rounded-[38%_62%_64%_36%/42%_68%_32%_58%] bg-blue-soft opacity-80" aria-hidden="true" />
+          <div className="absolute inset-6 lg:inset-12 rounded-4xl bg-white-warm shadow-elevated" aria-hidden="true" />
+          <div className="absolute inset-8 lg:inset-16 rounded-[42%_58%_38%_62%/58%_42%_58%_42%] bg-linear-to-br from-white to-ivory" aria-hidden="true" />
+          <img
+            src="/images/logo.png"
+            alt="Paramount Psychiatry"
+            className="relative h-auto w-[55%] max-w-40 object-contain drop-shadow-sm lg:max-w-56"
+          />
         </motion.div>
       </div>
     </Section>

@@ -31,7 +31,6 @@ export default function AboutHero() {
         <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About' }]} />
         <span className="text-eyebrow uppercase text-sage-deep font-semibold">{aboutHero.eyebrow}</span>
         <h1 className="text-display text-navy-deep">{aboutHero.headline}</h1>
-        <p className="text-body-lg text-muted">{aboutHero.subcopy}</p>
       </motion.div>
     </Section>
   );

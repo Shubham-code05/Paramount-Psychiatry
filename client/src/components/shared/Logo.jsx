@@ -28,9 +28,9 @@ export default function Logo({ className, dark = false }) {
       aria-label="Paramount Psychiatry — home"
     >
       <img
-        src="/images/paramountlogo1.jpeg"
+        src="/images/logo.png"
         alt=""
-        className="h-12 w-auto object-contain md:h-14"
+        className="h-14 w-auto object-contain md:h-16 lg:h-20"
       />
     </Link>
   );
