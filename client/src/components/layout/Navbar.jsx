@@ -85,9 +85,9 @@ export default function Navbar() {
       <div className="mx-auto flex w-full max-w-360 items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center select-none" aria-label="Paramount Psychiatry — home">
           <img
-            src="/images/logo.png"
+            src="/images/navimage.png"
             alt="Paramount Psychiatry"
-            className="h-auto w-32 object-contain md:w-36"
+            className="h-auto w-12 object-contain md:w-14"
           />
         </Link>
 
