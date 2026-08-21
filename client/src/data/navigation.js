@@ -98,9 +98,10 @@ export const navigation = [
 
 // Flat, top-level list used by the Navbar — client-approved information
 // architecture (client-feedback update). `megaMenu` flags the items that
-// open a dropdown panel: 'about' (2 links), 'conditions' (full mega-menu),
-// 'learningCenter' (12 category links). "Make an Appointment" is rendered
-// separately as the Navbar's primary CTA, not a nav item.
+// open a dropdown panel: currently just 'about' (2 links). Conditions We
+// Treat and Mental Health Learning Center are plain links straight to their
+// pages — no dropdown. "Make an Appointment" is rendered separately as the
+// Navbar's primary CTA, not a nav item.
 //
 // Services, the legacy Patient Resources hub, and FAQs are no longer
 // top-level items, but their routes and content are preserved — reachable
@@ -108,10 +109,10 @@ export const navigation = [
 // regression-safety requirement not to break existing pages.
 export const primaryNav = [
   { label: 'About', path: '/about', megaMenu: 'about' },
-  { label: 'Conditions We Treat', path: '/conditions', megaMenu: 'conditions' },
+  { label: 'Conditions We Treat', path: '/conditions' },
   { label: 'Insurance & Fees', path: '/insurance-fees' },
   { label: 'Practice Policies', path: '/practice-policies' },
-  { label: 'Mental Health Learning Center', path: '/learning-center', megaMenu: 'learningCenter' },
+  { label: 'Mental Health Learning Center', path: '/learning-center' },
   { label: 'Contact Us', path: '/contact' },
 ];
 
@@ -128,47 +129,6 @@ export const aboutMegaMenu = [
     label: 'Meet Dr. Pooja Tandon',
     path: '/about/dr-pooja-tandon',
     description: 'Credentials, clinical background, and treatment philosophy.',
-  },
-];
-
-// Grouped Conditions data for the Navbar mega-menu — organizes the flat
-// conditions list (above) into categories instead of one long list.
-export const conditionsMegaMenu = [
-  {
-    heading: 'Comprehensive & Common Concerns',
-    items: [
-      { label: 'Comprehensive Psychiatric Services', path: '/conditions/comprehensive-psychiatric-services' },
-      { label: 'ADHD & Executive Function', path: '/conditions/adhd-executive-function' },
-      { label: 'Anxiety & Stress Disorders', path: '/conditions/anxiety-stress-disorders' },
-      { label: 'Depression & Mood Disorders', path: '/conditions/depression-mood-disorders' },
-      { label: 'Trauma & Life Transitions', path: '/conditions/trauma-life-transitions' },
-    ],
-  },
-  {
-    heading: 'Specialized Care',
-    items: [
-      { label: "Women's Mental Health", path: '/conditions/womens-mental-health' },
-      { label: 'Sleep & Wellness', path: '/conditions/sleep-wellness' },
-      { label: 'Psychotic Disorders', path: '/conditions/psychotic-disorders' },
-      { label: 'Eating Disorders', path: '/conditions/eating-disorders' },
-      { label: 'LGBTQ+ Mental Health', path: '/conditions/lgbtq-mental-health' },
-      { label: 'Behavioral & Impulse Disorders', path: '/conditions/behavioral-impulse-disorders' },
-    ],
-  },
-  {
-    heading: 'Life Stage & Medical Psychiatry',
-    items: [
-      { label: 'Memory & Cognitive Health', path: '/conditions/memory-cognitive-health' },
-      { label: 'Geriatric Psychiatry', path: '/conditions/geriatric-psychiatry' },
-      { label: 'Medical Psychiatry', path: '/conditions/medical-psychiatry' },
-    ],
-  },
-  {
-    heading: 'Evaluations & Consultations',
-    items: [
-      { label: 'Pre-Surgical & Clinical Evaluations', path: '/conditions/pre-surgical-clinical-evaluations' },
-      { label: 'Specialized Consultations', path: '/conditions/specialized-consultations' },
-    ],
   },
 ];
 

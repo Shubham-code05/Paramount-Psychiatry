@@ -4,8 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import AppointmentButton from '../shared/AppointmentButton';
 import AboutMenuPanel from './AboutMenuPanel';
-import ConditionsMegaMenuPanel from './ConditionsMegaMenuPanel';
-import LearningCenterMenuPanel from './LearningCenterMenuPanel';
 import { primaryNav } from '../../data/navigation';
 import { cn } from '../../lib/cn';
 
@@ -13,8 +11,6 @@ import { cn } from '../../lib/cn';
 // width varies with each panel's content.
 const megaMenuPanels = {
   about: { Panel: AboutMenuPanel, width: 'w-80 max-w-[90vw]' },
-  conditions: { Panel: ConditionsMegaMenuPanel, width: 'w-2xl max-w-[90vw]' },
-  learningCenter: { Panel: LearningCenterMenuPanel, width: 'w-2xl max-w-[90vw]' },
 };
 
 export default function Navbar() {
