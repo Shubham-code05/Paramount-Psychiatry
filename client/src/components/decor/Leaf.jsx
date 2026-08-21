@@ -6,7 +6,6 @@ import { cn } from '../../lib/cn';
 const fills = {
   sage: 'var(--color-sage)',
   blue: 'var(--color-blue-accent)',
-  lavender: 'var(--color-lavender-accent)',
   gold: 'var(--color-gold)',
 };
 

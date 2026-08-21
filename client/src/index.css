@@ -24,15 +24,11 @@
   --color-sage-hover: #97aa9d;
   --color-sage-soft: #e7eee9;
   --color-sage-deep: #5f7a68;
-  /* Lavender is a small-accent-only color — never a background or primary
-     UI color. -soft: faint decorative wash (corner blobs). -accent: the
-     dedicated color for tiny dots/dividers/micro-details, tuned for use
-     against dark (navy) surfaces. -deep: for small decorative marks on
-     light surfaces (e.g. breadcrumb separators) where -accent's paleness
-     wouldn't read clearly. */
-  --color-lavender-soft: #ece7f5;
+  /* Lavender is reserved strictly for tiny decorative dots (e.g. the
+     footer's divider dot) — never a background, card, shape, border, icon,
+     text, or button color. Kept as a single token since that's its only
+     sanctioned use. */
   --color-lavender-accent: #c9bfe0;
-  --color-lavender-deep: #7c6a9e;
   /* Gold is a small-accent-only color, echoing the logo's gold ring/dot —
      never a background or primary UI color. */
   --color-gold: #d4a83a;

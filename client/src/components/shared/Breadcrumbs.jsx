@@ -10,7 +10,7 @@ export default function Breadcrumbs({ items, className }) {
           const isLast = index === items.length - 1;
           return (
             <li key={item.label} className="flex items-center gap-1.5">
-              {index > 0 && <ChevronRight size={12} className="text-lavender-deep/60" aria-hidden="true" />}
+              {index > 0 && <ChevronRight size={12} className="text-navy/30" aria-hidden="true" />}
               {isLast || !item.path ? (
                 <span aria-current="page" className="text-charcoal font-medium">
                   {item.label}

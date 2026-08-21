@@ -33,6 +33,7 @@ export default function ServicesPage() {
         title="Clinical & Evaluation Services"
         intro="Paramount Psychiatry provides two complementary lines of care: ongoing clinical treatment, and focused psychiatric evaluations. Explore each to learn more."
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Services' }]}
+        illustration="growingLeaf"
       />
 
       <Section spacing="md" background="white">

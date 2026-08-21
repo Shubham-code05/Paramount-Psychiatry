@@ -6,6 +6,7 @@ import SectionHeading from '../ui/SectionHeading';
 import Breadcrumbs from '../shared/Breadcrumbs';
 import FinalCta from '../shared/FinalCta';
 import ProcessSteps from '../shared/ProcessSteps';
+import HeroBloom from '../decor/HeroBloom';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
 // Single reusable template driving every /conditions/:slug and
@@ -32,20 +33,24 @@ export default function ConditionPage({ data, parent = { label: 'Conditions We T
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-50"
+          className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-navy-deep/10"
           aria-hidden="true"
         />
-        <motion.div
-          initial={shouldReduceMotion ? false : 'hidden'}
-          animate="visible"
-          variants={fadeUp}
-          className="relative flex max-w-2xl flex-col gap-6"
-        >
-          <Breadcrumbs items={[{ label: 'Home', path: '/' }, parent, { label: title }]} />
-          <span className="text-eyebrow uppercase text-sage-deep font-semibold">{eyebrow}</span>
-          <h1 className="text-display text-navy-deep">{title}</h1>
-          {intro && <p className="text-body-lg text-muted">{intro}</p>}
-        </motion.div>
+        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <motion.div
+            initial={shouldReduceMotion ? false : 'hidden'}
+            animate="visible"
+            variants={fadeUp}
+            className="flex max-w-2xl flex-col gap-6 lg:col-span-7"
+          >
+            <Breadcrumbs items={[{ label: 'Home', path: '/' }, parent, { label: title }]} />
+            <span className="text-eyebrow uppercase text-sage-deep font-semibold">{eyebrow}</span>
+            <h1 className="text-display text-navy-deep">{title}</h1>
+            {intro && <p className="text-body-lg text-muted">{intro}</p>}
+          </motion.div>
+
+          <HeroBloom variant="branch" className="hidden lg:col-span-5 lg:block" />
+        </div>
       </Section>
 
       {overview?.paragraphs?.length > 0 && (

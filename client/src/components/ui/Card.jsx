@@ -3,7 +3,6 @@ import { cn } from '../../lib/cn';
 const variants = {
   default: 'bg-white border border-border shadow-soft',
   soft: 'bg-sage-soft border border-transparent',
-  lavender: 'bg-lavender-soft border border-transparent',
   outlined: 'bg-transparent border border-border',
   elevated: 'bg-white border border-transparent shadow-elevated',
 };

@@ -6,9 +6,9 @@ import { clinicalAreas } from '../../data/drTandonPage';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
-// Pill background cycles through the three supporting pastels — sage,
-// blue, lavender — in equal rotation, same treatment for all three.
-const pillStyles = ['bg-sage-soft', 'bg-blue-soft', 'bg-lavender-soft'];
+// Pill background cycles through the three supporting brand tints — sage,
+// blue, warm gold — in equal rotation, same treatment for all three.
+const pillStyles = ['bg-sage-soft', 'bg-blue-soft', 'bg-gold/15'];
 
 export default function ClinicalAreas() {
   const shouldReduceMotion = useReducedMotion();

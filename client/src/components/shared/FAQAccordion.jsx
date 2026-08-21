@@ -32,7 +32,7 @@ function AccordionItem({ id, question, answer, isOpen, onToggle }) {
             aria-hidden="true"
             className={cn(
               'shrink-0 transition-[transform,color] duration-300 ease-calm',
-              isOpen ? 'rotate-180 text-lavender-deep' : 'text-sage-deep',
+              isOpen ? 'rotate-180 text-gold' : 'text-sage-deep',
             )}
           />
         </button>

@@ -5,6 +5,7 @@ import { fadeUp, staggerContainer } from '../../lib/motion';
 
 export default function AboutIntro() {
   const shouldReduceMotion = useReducedMotion();
+  const [lead, ...rest] = aboutIntro.paragraphs;
 
   return (
     <Section spacing="lg" background="white">
@@ -13,17 +14,22 @@ export default function AboutIntro() {
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         variants={staggerContainer}
-        className="mx-auto flex max-w-3xl flex-col gap-6"
+        className="mx-auto flex max-w-3xl flex-col gap-8"
       >
-        {aboutIntro.paragraphs.map((paragraph, index) => (
-          <motion.p
-            key={paragraph}
-            variants={fadeUp}
-            className={index === 0 ? 'text-body-lg text-navy-deep' : 'text-body text-muted'}
-          >
-            {paragraph}
-          </motion.p>
-        ))}
+        <motion.p
+          variants={fadeUp}
+          className="border-l-2 border-sage pl-6 text-body-lg font-medium text-navy-deep md:pl-8"
+        >
+          {lead}
+        </motion.p>
+
+        <div className="flex flex-col gap-5">
+          {rest.map((paragraph) => (
+            <motion.p key={paragraph} variants={fadeUp} className="text-body leading-relaxed text-muted">
+              {paragraph}
+            </motion.p>
+          ))}
+        </div>
       </motion.div>
     </Section>
   );

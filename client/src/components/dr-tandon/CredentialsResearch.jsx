@@ -9,7 +9,7 @@ export default function CredentialsResearch() {
   const rows = [credentials.boardCertification, credentials.research];
 
   return (
-    <Section spacing="lg" background="lavender-soft">
+    <Section spacing="lg" background="ivory">
       <div className="flex flex-col gap-8">
         <SectionHeading eyebrow={credentials.eyebrow} title="Board certification and research." />
 

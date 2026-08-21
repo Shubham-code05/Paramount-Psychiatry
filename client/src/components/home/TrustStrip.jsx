@@ -3,9 +3,9 @@ import Section from '../ui/Section';
 import { trustStrip } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
-// Icon color cycles through the three supporting pastels — sage, blue,
-// lavender — in equal rotation, same treatment for all three.
-const iconColors = ['text-sage-deep', 'text-navy', 'text-lavender-deep'];
+// Icon color cycles through the three supporting brand tints — sage, blue,
+// warm gold — in equal rotation, same treatment for all three.
+const iconColors = ['text-sage-deep', 'text-navy', 'text-gold'];
 
 export default function TrustStrip() {
   const shouldReduceMotion = useReducedMotion();

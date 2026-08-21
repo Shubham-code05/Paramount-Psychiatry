@@ -1,13 +1,17 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import Breadcrumbs from './Breadcrumbs';
+import HeroBloom from '../decor/HeroBloom';
 import { fadeUp } from '../../lib/motion';
 
 // Shared hero for simple content pages (Insurance & Fees, Patient Resources
 // and its sub-pages, FAQs, Appointment) — same visual language as the hero
 // embedded in <ConditionPage />, extracted so these pages don't each redefine it.
 // `crumbs`: [{ label, path? }] — full breadcrumb trail including "Home" and the current page.
-export default function PageHero({ eyebrow, title, intro, crumbs }) {
+// `illustration`: HeroBloom variant — defaults to the general "openSky"
+// scene for informational pages; callers with a more specific theme
+// (Appointment, Practice Policies, Services) pass their own variant.
+export default function PageHero({ eyebrow, title, intro, crumbs, illustration = 'openSky' }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -17,20 +21,24 @@ export default function PageHero({ eyebrow, title, intro, crumbs }) {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft opacity-50"
+        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-navy-deep/10"
         aria-hidden="true"
       />
-      <motion.div
-        initial={shouldReduceMotion ? false : 'hidden'}
-        animate="visible"
-        variants={fadeUp}
-        className="relative flex max-w-2xl flex-col gap-6"
-      >
-        <Breadcrumbs items={crumbs} />
-        {eyebrow && <span className="text-eyebrow uppercase text-sage-deep font-semibold">{eyebrow}</span>}
-        <h1 className="text-display text-navy-deep">{title}</h1>
-        {intro && <p className="text-body-lg text-muted">{intro}</p>}
-      </motion.div>
+      <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <motion.div
+          initial={shouldReduceMotion ? false : 'hidden'}
+          animate="visible"
+          variants={fadeUp}
+          className="flex max-w-2xl flex-col gap-6 lg:col-span-7"
+        >
+          <Breadcrumbs items={crumbs} />
+          {eyebrow && <span className="text-eyebrow uppercase text-sage-deep font-semibold">{eyebrow}</span>}
+          <h1 className="text-display text-navy-deep">{title}</h1>
+          {intro && <p className="text-body-lg text-muted">{intro}</p>}
+        </motion.div>
+
+        <HeroBloom variant={illustration} className="hidden lg:col-span-5 lg:block" />
+      </div>
     </Section>
   );
 }

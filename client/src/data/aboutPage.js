@@ -2,8 +2,7 @@
 // Verbatim client-approved copy. Do not paraphrase, shorten, or expand.
 
 export const aboutHero = {
-  eyebrow: 'About Paramount Psychiatry',
-  headline: 'Compassionate Care. Personalized Treatment. Lasting Wellness.',
+  headline: 'Personalized Treatment. Lasting Wellness.',
 };
 
 export const aboutIntro = {

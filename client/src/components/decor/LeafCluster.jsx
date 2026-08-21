@@ -29,7 +29,7 @@ export default function LeafCluster({ className, animate = 'float', flip = false
           className="absolute top-5 left-6"
         />
         <Leaf
-          color="lavender"
+          color="gold"
           size={16}
           rotate={flip ? 30 : -30}
           opacity={0.38}

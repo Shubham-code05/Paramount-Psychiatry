@@ -25,6 +25,7 @@ export default function AppointmentPage() {
         title="Request an appointment."
         intro="Ready to book? Appointments are scheduled directly through Headway. Have a question first? Send us a message below."
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Make an Appointment' }]}
+        illustration="sunrisePath"
       />
 
       <Section spacing="md" background="white">

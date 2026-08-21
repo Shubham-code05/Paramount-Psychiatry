@@ -8,7 +8,6 @@ const backgrounds = {
   ivory: 'bg-ivory',
   'sage-soft': 'bg-sage-soft',
   'blue-soft': 'bg-blue-soft',
-  'lavender-soft': 'bg-lavender-soft',
   navy: 'bg-navy-deep text-white',
 };
 

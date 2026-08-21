@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto flex aspect-[2/1] w-full max-w-56 items-center justify-center sm:max-w-64 lg:aspect-square lg:max-w-md"
         >
-          <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-lavender-soft lg:-bottom-4 lg:-left-4 lg:h-20 lg:w-20" aria-hidden="true" />
+          <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-[42%_58%_60%_40%/38%_62%_38%_62%] bg-navy-deep/10 lg:-bottom-4 lg:-left-4 lg:h-20 lg:w-20" aria-hidden="true" />
           <LeafCluster className="hidden sm:block absolute -top-4 -right-2 lg:-top-6 lg:right-0" />
           <div className="absolute inset-3 lg:inset-6 rounded-[60%_40%_32%_68%/62%_36%_64%_38%] bg-sage-soft" aria-hidden="true" />
           <div className="absolute inset-0 rounded-[38%_62%_64%_36%/42%_68%_32%_58%] bg-blue-soft opacity-80" aria-hidden="true" />

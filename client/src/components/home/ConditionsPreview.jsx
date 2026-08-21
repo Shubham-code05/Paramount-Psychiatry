@@ -9,7 +9,7 @@ import { fadeUp, staggerContainer } from '../../lib/motion';
 
 // Cycled per card for a subtle, varied botanical accent — never a strong
 // per-card background color, just a small tinted leaf mark.
-const accentColors = ['text-sage', 'text-blue-accent', 'text-lavender-accent'];
+const accentColors = ['text-sage', 'text-blue-accent', 'text-gold'];
 
 export default function ConditionsPreview() {
   const shouldReduceMotion = useReducedMotion();

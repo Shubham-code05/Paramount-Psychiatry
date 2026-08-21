@@ -42,7 +42,7 @@ export default function LearningCenterCategoryPage() {
 
       <Section spacing="lg" background="white">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-(--radius-card) border border-border bg-white-warm p-10 text-center shadow-soft">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lavender-soft text-lavender-deep">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 text-gold">
             <BookOpen size={22} aria-hidden="true" />
           </span>
           <h2 className="text-h4 text-navy-deep">Content coming soon</h2>

@@ -9,12 +9,12 @@ import { cn } from '../../lib/cn';
 
 const [featured, ...rest] = conditionCategories;
 
-// Icon-circle color cycles through the three supporting pastels — sage,
-// blue, lavender — in equal rotation, same treatment for all three.
+// Icon-circle color cycles through the three supporting brand tints — sage,
+// blue, warm gold — in equal rotation, same treatment for all three.
 const iconStyles = [
   { bg: 'bg-sage-soft', text: 'text-sage-deep' },
   { bg: 'bg-blue-soft', text: 'text-navy' },
-  { bg: 'bg-lavender-soft', text: 'text-lavender-deep' },
+  { bg: 'bg-gold/15', text: 'text-gold' },
 ];
 
 export default function ConditionsOverviewGrid() {

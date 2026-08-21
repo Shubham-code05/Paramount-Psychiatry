@@ -8,7 +8,7 @@ export default function AboutHero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="xl" background="warm" className="relative overflow-hidden">
+    <Section spacing="xl" background="ivory" className="relative overflow-hidden">
       <div
         className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-[58%_42%_36%_64%/60%_38%_62%_40%] bg-sage-soft opacity-70"
         aria-hidden="true"
@@ -18,20 +18,31 @@ export default function AboutHero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-lavender-soft opacity-50"
+        className="pointer-events-none absolute -left-6 bottom-6 h-16 w-16 rounded-[38%_62%_58%_42%/62%_38%_58%_42%] bg-navy-deep/10"
         aria-hidden="true"
       />
 
-      <motion.div
-        initial={shouldReduceMotion ? false : 'hidden'}
-        animate="visible"
-        variants={fadeUp}
-        className="relative flex max-w-2xl flex-col gap-6"
-      >
-        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About' }]} />
-        <span className="text-eyebrow uppercase text-sage-deep font-semibold">{aboutHero.eyebrow}</span>
-        <h1 className="text-display text-navy-deep">{aboutHero.headline}</h1>
-      </motion.div>
+      <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <motion.div
+          initial={shouldReduceMotion ? false : 'hidden'}
+          animate="visible"
+          variants={fadeUp}
+          className="flex max-w-2xl flex-col gap-6 lg:col-span-7"
+        >
+          <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About' }]} />
+          <span className="h-1 w-14 rounded-full bg-gold" aria-hidden="true" />
+          <h1 className="text-display text-navy-deep">{aboutHero.headline}</h1>
+        </motion.div>
+
+        <motion.img
+          src="/images/sketch/about.png"
+          alt=""
+          initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="hidden h-auto w-full max-w-sm lg:col-span-5 lg:block"
+        />
+      </div>
     </Section>
   );
 }
