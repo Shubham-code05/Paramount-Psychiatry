@@ -2,7 +2,7 @@
 // Copy is intentionally conservative: no invented credentials, awards,
 // statistics, testimonials, or insurance names beyond what has been supplied.
 
-import { HeartPulse, Users2, ShieldCheck, Stethoscope, Sparkles, Laptop2, ClipboardList, FileText } from 'lucide-react';
+import { HeartPulse, Laptop2 } from 'lucide-react';
 import coreValues from './values';
 
 export const hero = {
@@ -10,15 +10,11 @@ export const hero = {
   subcopy:
     'Thoughtful, personalized psychiatric care designed around the whole person—not just the symptoms.',
   primaryCta: 'Make an Appointment',
-  secondaryCta: 'Explore Our Approach',
 };
 
 export const trustStrip = [
-  { label: 'Board-Certified Psychiatrist', icon: ShieldCheck },
-  { label: 'Adult & Geriatric Psychiatry', icon: Users2 },
-  { label: 'Evidence-Based Care', icon: Stethoscope },
-  { label: 'Personalized Treatment', icon: Sparkles },
-  { label: 'Telepsychiatry', icon: Laptop2 },
+  { label: 'In-person care in New Jersey and New York', icon: HeartPulse },
+  { label: 'Secure telepsychiatry in New Jersey and New York', icon: Laptop2 },
 ];
 
 export const introduction = {
@@ -104,51 +100,11 @@ export const careJourney = {
   heading: 'A thoughtful process, from first conversation onward.',
   steps: [
     { number: '01', title: 'Schedule', description: 'Request an appointment through Headway at a time that works for you.' },
-    { number: '02', title: 'Complete Intake', description: 'Share your history and current concerns ahead of your first visit.' },
+    { number: '02', title: 'Complete Onboarding', description: 'Fill out Intake Form, Create Profile, Provide Insurance and Payment details' },
     { number: '03', title: 'Comprehensive Evaluation', description: 'A thorough psychiatric evaluation informs an individualized plan.' },
     { number: '04', title: 'Personalized Treatment Plan', description: 'Care is planned collaboratively, tailored to your goals.' },
     { number: '05', title: 'Ongoing Follow-Up', description: 'Treatment is reviewed and adjusted together over time.' },
   ],
-};
-
-export const servicesPreview = {
-  eyebrow: 'Our Services',
-  heading: 'Comprehensive psychiatric care, tailored to you.',
-  body: 'Paramount Psychiatry provides comprehensive psychiatric evaluation, individualized treatment planning, medication management where appropriate, and collaborative, ongoing care — alongside dedicated evaluation services.',
-  cta: 'Explore Our Services',
-  ctaLink: '/services',
-  items: [
-    {
-      icon: ClipboardList,
-      title: 'Clinical Services',
-      description: 'Comprehensive evaluation, individualized treatment planning, and ongoing collaborative care.',
-    },
-    {
-      icon: FileText,
-      title: 'Evaluation Services',
-      description: 'Focused psychiatric evaluations, including pre-surgical and specialized consultations.',
-    },
-  ],
-};
-
-export const access = {
-  eyebrow: 'Access to Care',
-  heading: 'Convenient, secure access to psychiatric care.',
-  body: 'Paramount Psychiatry provides both in-person care and secure telepsychiatry services in New Jersey and New York — designed to make consistent, ongoing care more convenient.',
-  cta: 'Learn More',
-  ctaLink: '/contact',
-  points: [
-    { icon: HeartPulse, label: 'In-person care in New Jersey and New York' },
-    { icon: Laptop2, label: 'Secure telepsychiatry in New Jersey and New York' },
-  ],
-};
-
-export const insurancePreview = {
-  eyebrow: 'Insurance & Fees',
-  heading: 'Clear information about coverage and costs.',
-  body: 'Paramount Psychiatry accepts a range of insurance plans. Full details on accepted plans and self-pay fees are available on the Insurance & Fees page.',
-  cta: 'View Insurance & Fees',
-  ctaLink: '/insurance-fees',
 };
 
 // Only `body` is used — heading and button labels/links are the shared

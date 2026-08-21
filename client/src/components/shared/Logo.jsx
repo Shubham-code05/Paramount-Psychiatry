@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/cn';
 
-// Footer (dark background) keeps the original text wordmark — the approved
-// logo artwork has an opaque cream backdrop that would box awkwardly on navy.
+// Footer (dark background) uses the same navy-backed logo artwork as the
+// Navbar — both sit on the site's navy-deep background, so the mark blends
+// seamlessly in both places.
 export default function Logo({ className, dark = false }) {
   if (dark) {
     return (
       <Link
         to="/"
-        className={cn('flex flex-col leading-none font-display select-none', className)}
+        className={cn('flex items-center select-none', className)}
         aria-label="Paramount Psychiatry — home"
       >
-        <span className="text-lg md:text-xl tracking-[0.14em] font-semibold text-white">
-          PARAMOUNT
-        </span>
-        <span className="text-[0.6rem] md:text-xs tracking-[0.32em] font-medium mt-0.5 text-white/70">
-          PSYCHIATRY
-        </span>
+        <img
+          src="/images/navimage.png"
+          alt="Paramount Psychiatry"
+          className="h-16 w-auto object-contain md:h-20"
+        />
       </Link>
     );
   }

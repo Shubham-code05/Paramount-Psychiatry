@@ -5,9 +5,6 @@ import ConditionsPreview from '../components/home/ConditionsPreview';
 import DoctorSection from '../components/home/DoctorSection';
 import ValuesGrid from '../components/home/ValuesGrid';
 import CareJourney from '../components/home/CareJourney';
-import ServicesPreview from '../components/home/ServicesPreview';
-import AccessSection from '../components/home/AccessSection';
-import InsurancePreview from '../components/home/InsurancePreview';
 import FinalCta from '../components/shared/FinalCta';
 import { finalCta } from '../data/home';
 
@@ -21,9 +18,6 @@ export default function HomePage() {
       <DoctorSection />
       <ValuesGrid />
       <CareJourney />
-      <ServicesPreview />
-      <AccessSection />
-      <InsurancePreview />
       <FinalCta eyebrow={null} body={finalCta.body} decorate />
     </>
   );

@@ -5,36 +5,7 @@ import AppointmentButton from '../shared/AppointmentButton';
 import Container from '../ui/Container';
 import site from '../../data/site';
 import { emergencyNotice } from '../../data/home';
-
-const columns = [
-  {
-    heading: 'About',
-    links: [
-      { label: 'About Paramount Psychiatry', path: '/about' },
-      { label: 'Dr. Pooja Tandon', path: '/about/dr-pooja-tandon' },
-    ],
-  },
-  {
-    heading: 'Care',
-    links: [
-      { label: 'Conditions We Treat', path: '/conditions' },
-      { label: 'Clinical Services', path: '/services/clinical-services' },
-      { label: 'Evaluation Services', path: '/services/evaluation-services' },
-      { label: 'Mental Health Learning Center', path: '/learning-center' },
-    ],
-  },
-  {
-    heading: 'Information',
-    links: [
-      { label: 'Insurance & Fees', path: '/insurance-fees' },
-      { label: 'Practice Policies', path: '/practice-policies' },
-      { label: 'FAQs', path: '/faqs' },
-      { label: 'Patient Resources', path: '/patient-resources' },
-      { label: 'Contact Us', path: '/contact' },
-      { label: 'Appointment Requests', path: '/appointment' },
-    ],
-  },
-];
+import { primaryNav } from '../../data/navigation';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -55,27 +26,25 @@ export default function Footer() {
       </div>
 
       <Container className="py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div className="flex flex-col gap-4">
             <Logo dark />
             <p className="text-body-sm text-white/70 max-w-xs">{site.tagline}</p>
             <AppointmentButton variant="secondary" size="sm" className="w-fit mt-2" />
           </div>
 
-          {columns.map((column) => (
-            <nav key={column.heading} aria-label={column.heading} className="flex flex-col gap-2">
-              <span className="text-eyebrow uppercase text-white/50 font-semibold mb-1">{column.heading}</span>
-              {column.links.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="text-body-sm text-white/80 hover:text-white transition-colors w-fit"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          ))}
+          <nav aria-label="Footer" className="flex flex-col gap-2">
+            <span className="text-eyebrow uppercase text-white/50 font-semibold mb-1">Navigation</span>
+            {primaryNav.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="text-body-sm text-white/80 hover:text-white transition-colors w-fit"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
           <div className="flex flex-col gap-3">
             <span className="text-eyebrow uppercase text-white/50 font-semibold">Contact</span>

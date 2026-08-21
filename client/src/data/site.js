@@ -4,7 +4,7 @@ const site = {
   tagline: 'Where compassionate listening meets evidence-based psychiatry.',
   phone: '(929) 680-7358',
   fax: '(929) 200-3926',
-  email: 'paramountpsychiatric@gmail.com',
+  email: 'info@paramountpsychiatrynj.com',
   address: {
     street: '28 Briar Hill Dr',
     city: 'Manalapan',

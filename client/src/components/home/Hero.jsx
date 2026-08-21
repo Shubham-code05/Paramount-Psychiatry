@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
-import Button from '../ui/Button';
 import AppointmentButton from '../shared/AppointmentButton';
 import { hero } from '../../data/home';
 import { fadeUp } from '../../lib/motion';
@@ -22,9 +21,6 @@ export default function Hero() {
           <p className="text-body-lg text-muted max-w-xl">{hero.subcopy}</p>
           <div className="flex flex-wrap gap-3 pt-2">
             <AppointmentButton size="lg">{hero.primaryCta}</AppointmentButton>
-            <Button href="#approach" variant="outline" size="lg">
-              {hero.secondaryCta}
-            </Button>
           </div>
         </motion.div>
 
