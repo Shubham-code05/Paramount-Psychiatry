@@ -1,9 +1,8 @@
 import Hero from '../components/home/Hero';
 import TrustStrip from '../components/home/TrustStrip';
 import Introduction from '../components/home/Introduction';
-import ConditionsPreview from '../components/home/ConditionsPreview';
 import DoctorSection from '../components/home/DoctorSection';
-import ValuesGrid from '../components/home/ValuesGrid';
+import ConditionsPreview from '../components/home/ConditionsPreview';
 import CareJourney from '../components/home/CareJourney';
 import FinalCta from '../components/shared/FinalCta';
 import { finalCta } from '../data/home';
@@ -14,9 +13,8 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <Introduction />
-      <ConditionsPreview />
       <DoctorSection />
-      <ValuesGrid />
+      <ConditionsPreview />
       <CareJourney />
       <FinalCta eyebrow={null} body={finalCta.body} decorate />
     </>

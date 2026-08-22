@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import Breadcrumbs from '../shared/Breadcrumbs';
-import HeroBloom from '../decor/HeroBloom';
 import { conditionsHero } from '../../data/conditions';
 import { fadeUp } from '../../lib/motion';
 
@@ -23,7 +22,7 @@ export default function ConditionsHero() {
         aria-hidden="true"
       />
 
-      <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}
           animate="visible"
@@ -36,7 +35,14 @@ export default function ConditionsHero() {
           <p className="text-body-lg text-muted">{conditionsHero.subcopy}</p>
         </motion.div>
 
-        <HeroBloom variant="growingLeaf" className="hidden lg:col-span-5 lg:block" />
+        <motion.img
+          src="/images/sketch/ConditionsWeTreat.png"
+          alt=""
+          initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="hidden h-auto w-full lg:col-span-5 lg:-ml-36 lg:block"
+        />
       </div>
     </Section>
   );

@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
-import AppointmentButton from '../shared/AppointmentButton';
 import { hero } from '../../data/home';
 import { fadeUp } from '../../lib/motion';
 import LeafCluster from '../decor/LeafCluster';
@@ -19,9 +18,6 @@ export default function Hero() {
         >
           <h1 className="text-display text-navy-deep">{hero.headline}</h1>
           <p className="text-body-lg text-muted max-w-xl">{hero.subcopy}</p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <AppointmentButton size="lg">{hero.primaryCta}</AppointmentButton>
-          </div>
         </motion.div>
 
         <motion.div

@@ -1,13 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
-import Button from '../ui/Button';
 import AppointmentButton from './AppointmentButton';
 import LeafCluster from '../decor/LeafCluster';
 import { fadeUp } from '../../lib/motion';
 
 // Generic closing CTA reused across every page on the site — keeps the
-// "Make an Appointment" / "Contact Us" pairing and the Headway link
-// centralized in one place. `body` is optional (the homepage uses it for a
+// "Make an Appointment" button and the Headway link centralized in one
+// place. `body` is optional (the homepage uses it for a
 // short supporting line; most pages omit it). `decorate` opts into the
 // homepage's subtle botanical corner accents — off by default so every
 // other page's CTA stays pixel-identical.
@@ -39,9 +38,6 @@ export default function FinalCta({
         {body && <p className="text-body-lg text-white/70 max-w-md">{body}</p>}
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <AppointmentButton size="lg" />
-          <Button to="/contact" variant="ghost-light" size="lg">
-            Contact Us
-          </Button>
         </div>
       </motion.div>
     </Section>

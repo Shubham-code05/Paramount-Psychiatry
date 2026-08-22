@@ -9,11 +9,10 @@ export const hero = {
   headline: 'Where compassionate listening meets evidence-based psychiatry.',
   subcopy:
     'Thoughtful, personalized psychiatric care designed around the whole person—not just the symptoms.',
-  primaryCta: 'Make an Appointment',
 };
 
 export const trustStrip = [
-  { label: 'In-person care in New Jersey and New York', icon: HeartPulse },
+  { label: 'In-person care in New Jersey', icon: HeartPulse },
   { label: 'Secure telepsychiatry in New Jersey and New York', icon: Laptop2 },
 ];
 
@@ -26,6 +25,8 @@ export const introduction = {
   ],
   cta: 'Learn About Paramount Psychiatry',
   ctaLink: '/about',
+  valuesEyebrow: 'Why Paramount Psychiatry',
+  values: coreValues,
 };
 
 export const conditionsPreview = {
@@ -89,18 +90,12 @@ export const doctor = {
   ctaLink: '/about/dr-pooja-tandon',
 };
 
-export const values = {
-  eyebrow: 'Why Paramount Psychiatry',
-  heading: 'Psychiatric care that sees the whole person.',
-  items: coreValues,
-};
-
 export const careJourney = {
   eyebrow: 'Your Care Journey',
   heading: 'A thoughtful process, from first conversation onward.',
   steps: [
     { number: '01', title: 'Schedule', description: 'Request an appointment through Headway at a time that works for you.' },
-    { number: '02', title: 'Complete Onboarding', description: 'Fill out Intake Form, Create Profile, Provide Insurance and Payment details' },
+    { number: '02', title: 'Complete Onboarding', description: 'Fill out intake form, create profile, provide insurance and payment details' },
     { number: '03', title: 'Comprehensive Evaluation', description: 'A thorough psychiatric evaluation informs an individualized plan.' },
     { number: '04', title: 'Personalized Treatment Plan', description: 'Care is planned collaboratively, tailored to your goals.' },
     { number: '05', title: 'Ongoing Follow-Up', description: 'Treatment is reviewed and adjusted together over time.' },

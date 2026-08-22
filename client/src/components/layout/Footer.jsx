@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Info } from 'lucide-react';
 import Logo from '../shared/Logo';
-import AppointmentButton from '../shared/AppointmentButton';
 import Container from '../ui/Container';
 import site from '../../data/site';
 import { emergencyNotice } from '../../data/home';
@@ -30,7 +29,6 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Logo dark />
             <p className="text-body-sm text-white/70 max-w-xs">{site.tagline}</p>
-            <AppointmentButton variant="secondary" size="sm" className="w-fit mt-2" />
           </div>
 
           <nav aria-label="Footer" className="flex flex-col gap-2">
