@@ -11,7 +11,8 @@ import { fadeUp } from '../../lib/motion';
 // `illustration`: HeroBloom variant — defaults to the general "openSky"
 // scene for informational pages; callers with a more specific theme
 // (Appointment, Practice Policies, Services) pass their own variant.
-export default function PageHero({ eyebrow, title, intro, crumbs, illustration = 'openSky' }) {
+// `sketch`: Optional path to a sketch image to display instead of HeroBloom.
+export default function PageHero({ eyebrow, title, intro, crumbs, illustration = 'openSky', sketch }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -37,7 +38,18 @@ export default function PageHero({ eyebrow, title, intro, crumbs, illustration =
           {intro && <p className="text-body-lg text-muted">{intro}</p>}
         </motion.div>
 
-        <HeroBloom variant={illustration} className="hidden lg:col-span-5 lg:block" />
+        {sketch ? (
+          <motion.img
+            src={sketch}
+            alt=""
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden h-auto w-full max-w-sm lg:col-span-5 lg:block"
+          />
+        ) : (
+          <HeroBloom variant={illustration} className="hidden lg:col-span-5 lg:block" />
+        )}
       </div>
     </Section>
   );

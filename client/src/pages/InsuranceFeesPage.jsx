@@ -57,6 +57,7 @@ export default function InsuranceFeesPage() {
         title={insuranceFeesHero.title}
         intro={insuranceFeesHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Insurance & Fees' }]}
+        sketch="/images/sketch/clearinformationinsurance.png"
       />
 
       <TextSection heading={insuranceSection.heading} paragraphs={insuranceSection.paragraphs} background="white" />

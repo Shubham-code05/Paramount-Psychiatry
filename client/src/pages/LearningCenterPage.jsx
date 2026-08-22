@@ -22,6 +22,7 @@ export default function LearningCenterPage() {
         title={learningCenterHero.title}
         intro={learningCenterHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Mental Health Learning Center' }]}
+        sketch="/images/sketch/Mentalhealthlearningcenter.png"
       />
 
       <Section spacing="md" background="white">

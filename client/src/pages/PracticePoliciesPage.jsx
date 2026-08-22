@@ -15,7 +15,7 @@ export default function PracticePoliciesPage() {
         title={practicePoliciesHero.title}
         intro={practicePoliciesHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Practice Policies' }]}
-        illustration="mountain"
+        sketch="/images/sketch/Practocepolices.png"
       />
 
       <Section spacing="sm" background="white">
