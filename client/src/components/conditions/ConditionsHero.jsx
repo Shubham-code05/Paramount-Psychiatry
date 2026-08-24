@@ -30,7 +30,6 @@ export default function ConditionsHero() {
           className="flex max-w-2xl flex-col gap-6 lg:col-span-7"
         >
           <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Conditions We Treat' }]} />
-          <span className="text-eyebrow uppercase text-sage-deep font-semibold">{conditionsHero.eyebrow}</span>
           <h1 className="text-display text-navy-deep">{conditionsHero.headline}</h1>
           <p className="text-body-lg text-muted">{conditionsHero.subcopy}</p>
         </motion.div>
