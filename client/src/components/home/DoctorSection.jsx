@@ -2,42 +2,44 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import Button from '../ui/Button';
 import { doctor } from '../../data/home';
-import site from '../../data/site';
 import { fadeUp } from '../../lib/motion';
-import LeafCluster from '../decor/LeafCluster';
 
+// Mirrors <Introduction />'s two-column "Our Approach" layout — eyebrow +
+// heading in the left column, supporting copy in the right column, a
+// centered outline CTA below, and the same bottom divider treatment — so
+// this section reads as a continuation of the same pattern rather than a
+// standalone design.
 export default function DoctorSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="warm" className="relative overflow-hidden">
-      <LeafCluster
-        animate="reveal"
-        className="hidden lg:block absolute top-10 left-[6%] xl:left-[10%]"
-      />
-      <LeafCluster
-        animate="reveal"
-        flip
-        className="hidden lg:block absolute bottom-10 right-[6%] xl:right-[10%]"
-      />
+    <Section spacing="lg" background="warm">
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: true, margin: '-100px' }}
         variants={fadeUp}
-        className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center"
+        className="flex flex-col gap-10"
       >
-        <span className="text-eyebrow uppercase text-sage-deep font-semibold">{doctor.eyebrow}</span>
-        <h2 className="text-h2">{doctor.heading}</h2>
-        <p className="text-body font-medium text-navy-deep">{site.provider} — Board-Certified Adult & Geriatric Psychiatrist</p>
-        {doctor.body.map((paragraph) => (
-          <p key={paragraph} className="text-body-lg text-muted">
-            {paragraph}
-          </p>
-        ))}
-        <Button to={doctor.ctaLink} variant="outline" className="mt-2 w-fit">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
+            <span className="text-eyebrow uppercase text-sage-deep font-semibold">{doctor.eyebrow}</span>
+            <h2 className="text-h2 mt-3">{doctor.heading}</h2>
+          </div>
+          <div className="lg:col-span-7 flex flex-col gap-5">
+            {doctor.body.map((paragraph) => (
+              <p key={paragraph} className="text-body-lg text-muted">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <Button to={doctor.ctaLink} variant="outline" className="mx-auto">
           {doctor.cta}
         </Button>
+
+        <div className="border-t border-border pt-10" aria-hidden="true" />
       </motion.div>
     </Section>
   );
