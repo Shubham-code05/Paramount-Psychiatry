@@ -30,8 +30,8 @@ export const introduction = {
 };
 
 export const conditionsPreview = {
-  eyebrow: 'Conditions We Treat',
-  heading: 'Thoughtful care for the challenges that affect everyday life.',
+  eyebrow: '',
+  heading: 'Thoughtful care for the challenges  everyday life.',
   body: 'Paramount Psychiatry provides individualized psychiatric care across a broad range of conditions, tailoring evaluation and treatment to each patient rather than a one-size-fits-all approach.',
   cta: 'Explore All Conditions',
   ctaLink: '/conditions',

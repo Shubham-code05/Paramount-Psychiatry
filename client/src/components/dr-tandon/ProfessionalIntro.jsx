@@ -13,14 +13,23 @@ export default function ProfessionalIntro() {
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         variants={fadeUp}
-        className="max-w-2xl flex flex-col gap-4"
+        className="mx-auto flex max-w-3xl flex-col gap-8"
       >
         <span className="text-eyebrow uppercase text-sage-deep font-semibold">{professionalIntro.eyebrow}</span>
-        {professionalIntro.body.map((paragraph, index) => (
-          <p key={paragraph} className={index === 0 ? 'text-h3 font-display text-navy-deep' : 'text-body-lg text-muted'}>
-            {paragraph}
-          </p>
-        ))}
+        {professionalIntro.body.map((paragraph, index) =>
+          index === 0 ? (
+            <p
+              key={paragraph}
+              className="border-l-2 border-sage pl-6 text-body-lg font-medium text-navy-deep md:pl-8"
+            >
+              {paragraph}
+            </p>
+          ) : (
+            <p key={paragraph} className="text-body leading-relaxed text-muted">
+              {paragraph}
+            </p>
+          ),
+        )}
       </motion.div>
     </Section>
   );

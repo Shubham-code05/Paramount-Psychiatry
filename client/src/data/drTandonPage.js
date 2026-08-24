@@ -2,7 +2,7 @@
 // Every fact below is transcribed as supplied; nothing here is invented —
 // no titles, dates, publications, or affiliations beyond what was given.
 
-import { GraduationCap, ShieldCheck, BookOpenText, Globe2, HeartPulse } from 'lucide-react';
+import { GraduationCap, ShieldCheck, BookOpenText, HeartPulse } from 'lucide-react';
 
 export const drHero = {
   eyebrow: 'About Dr. Tandon',
@@ -13,46 +13,14 @@ export const drHero = {
 export const professionalIntro = {
   eyebrow: 'Professional Introduction',
   body: [
-    'Dr. Pooja Tandon is a Board-Certified Adult and Geriatric Psychiatrist.',
-    'She believes exceptional mental health care starts with understanding the person behind the diagnosis — an approach reflected in Paramount Psychiatry’s emphasis on listening, individualized treatment, and collaborative decision-making.',
+    'Dr. Pooja Tandon is a Board-Certified Adult and Geriatric Psychiatrist who believes that exceptional mental health care starts with understanding the person behind the diagnosis. Every patient brings a unique life story, experiences, and goals—and treatment should reflect that individuality.',
+    'With more than a decade of experience across academic medical centers, hospitals, outpatient practices, nursing homes, Veterans Affairs facilities, and telepsychiatry, Dr. Tandon provides comprehensive psychiatric care for adults and older adults experiencing a broad range of emotional, behavioral, and cognitive concerns.',
+    'Dr. Tandon completed her Psychiatry Residency at Creedmoor Psychiatric Center in New York with extensive training through NewYork-Presbyterian/Columbia University Irving Medical Center before pursuing advanced Fellowship training in Geriatric Psychiatry at Stony Brook University Medical Center.',
+    'Her philosophy is grounded in thoughtful, evidence-based, and collaborative care. Rather than relying on a one-size-fits-all approach, she performs comprehensive evaluations, carefully considers biological, psychological, and medical factors, and develops individualized treatment plans that may include medication management, supportive psychotherapy, lifestyle recommendations, and collaboration with therapists, primary care physicians, and other specialists when appropriate.',
+    'Dr. Tandon is compassionate, attentive, warm, and thorough. She listens without judgment, explains treatment options clearly, and creates an environment of comfort where a patient is encouraged to actively participate in their care. She believes that successful treatment is built on trust, education, and shared decision-making, not simply prescribing medication.',
+    'Dr. Tandon is Board Certified by the American Board of Psychiatry and Neurology and has published research in the American Journal of Geriatric Psychiatry examining the relationship between obstructive sleep apnea and cognitive impairment in older adults with depression. She is licensed to practice medicine in New Jersey, New York, Pennsylvania, and Kansas, and provides care in both English and Hindi.',
+    'Whether you are seeking support for the first time, navigating a life transition, managing a chronic mental health condition, or caring for an aging loved one, Dr. Tandon is committed to providing compassionate, personalized psychiatric care that helps patients achieve lasting emotional wellness and a better quality of life.',
   ],
-};
-
-export const experience = {
-  eyebrow: 'Experience',
-  heading: 'More than a decade of experience.',
-  body: 'Dr. Tandon has more than a decade of experience across a range of clinical settings, including:',
-  settings: [
-    'Academic medical centers',
-    'Hospitals',
-    'Outpatient practices',
-    'Nursing homes',
-    'Veterans Affairs facilities',
-    'Telepsychiatry',
-  ],
-};
-
-export const clinicalAreas = {
-  eyebrow: 'Clinical Areas',
-  heading: 'Areas of clinical focus.',
-  areas: [
-    'Adult Psychiatry',
-    'Geriatric Psychiatry',
-    "Women's Mental Health",
-    'ADHD',
-    'Anxiety Disorders',
-    'Depression',
-    'Bipolar Disorder',
-    'OCD',
-    'Sleep Disorders',
-    'Memory Disorders',
-    'Dementia',
-    'Cognitive Health',
-    'Mood Disorders Related to Hormonal & Medical Conditions',
-    'Comprehensive Psychiatric Evaluations',
-    'Medication Management',
-  ],
-  note: 'See Conditions We Treat for detailed, condition-specific information.',
 };
 
 export const educationTraining = {
@@ -78,33 +46,6 @@ export const educationTraining = {
   note: 'This fellowship provides additional expertise in memory disorders, dementia, cognitive decline, and the psychiatric complexities associated with aging.',
 };
 
-export const medicalConnection = {
-  eyebrow: 'Medical & Mental Health Connection',
-  heading: 'Where physical and emotional health meet.',
-  body: 'Dr. Tandon has a clinical interest in the connection between physical and emotional health, including experience involving:',
-  factors: [
-    'Thyroid disease',
-    'Diabetes',
-    'Menopause',
-    'Perimenopause',
-    'PMDD',
-    'PCOS',
-    'Pregnancy',
-    'Postpartum changes',
-    'Other medical conditions affecting emotional well-being',
-  ],
-  note: 'These factors may be considered as part of a comprehensive evaluation — this is not a diagnostic or treatment guarantee.',
-};
-
-export const treatmentPhilosophy = {
-  eyebrow: 'Treatment Philosophy',
-  heading: 'Thoughtful, evidence-based, collaborative.',
-  body: [
-    'Dr. Tandon’s approach is built on comprehensive evaluations that consider biological, psychological, and medical factors together, leading to individualized treatment plans.',
-    'Care may include, when appropriate, medication management, supportive psychotherapy, lifestyle recommendations, and collaboration with therapists, primary care physicians, and other specialists.',
-  ],
-};
-
 export const credentials = {
   eyebrow: 'Board Certification & Research',
   boardCertification: {
@@ -115,20 +56,6 @@ export const credentials = {
     icon: BookOpenText,
     label:
       'Published research in the American Journal of Geriatric Psychiatry examining the relationship between obstructive sleep apnea and cognitive impairment in older adults with depression.',
-  },
-};
-
-export const licensureLanguages = {
-  eyebrow: 'Licensure & Languages',
-  licensure: {
-    icon: ShieldCheck,
-    label: 'Licensed to Practice Medicine In',
-    states: ['New Jersey', 'New York', 'Pennsylvania', 'Kansas'],
-  },
-  languages: {
-    icon: Globe2,
-    label: 'Languages',
-    items: ['English', 'Hindi'],
   },
 };
 
