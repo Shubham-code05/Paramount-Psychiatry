@@ -42,12 +42,12 @@ export default function DrHero() {
           initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto aspect-4/5 w-full max-w-sm lg:col-span-5"
+          className="relative mx-auto aspect-square w-full max-w-sm lg:col-span-5"
         >
           <img
             src={DrPooja}
             alt="Dr. Pooja Tandon, MD"
-            className="h-full w-full rounded-4xl object-cover shadow-elevated"
+            className="h-full w-full rounded-full object-cover"
           />
         </motion.div>
       </div>
