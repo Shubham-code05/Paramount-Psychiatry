@@ -25,7 +25,6 @@ export const introduction = {
   ],
   cta: 'Learn About Paramount Psychiatry',
   ctaLink: '/about',
-  valuesEyebrow: 'Why Paramount Psychiatry',
   values: coreValues,
 };
 

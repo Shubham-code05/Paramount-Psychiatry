@@ -5,6 +5,7 @@ import Container from '../ui/Container';
 import site from '../../data/site';
 import { emergencyNotice } from '../../data/home';
 import { primaryNav } from '../../data/navigation';
+import { socialLinks } from '../../data/social';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -29,6 +30,28 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Logo dark />
             <p className="text-body-sm text-white/70 max-w-xs">{site.tagline}</p>
+
+            {/* Social icons — placeholders until account URLs are provided; see data/social.js */}
+            <div className="flex items-center gap-4 pt-1" aria-label="Social media">
+              {socialLinks.map(({ name, href, Icon }) =>
+                href ? (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={name}
+                    className="text-white/60 transition-colors hover:text-white"
+                  >
+                    <Icon size={20} aria-hidden="true" />
+                  </a>
+                ) : (
+                  <span key={name} aria-label={`${name} (coming soon)`} className="text-white/60">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+                ),
+              )}
+            </div>
           </div>
 
           <nav aria-label="Footer" className="flex flex-col gap-2">

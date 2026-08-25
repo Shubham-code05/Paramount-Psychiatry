@@ -3,27 +3,37 @@ import Section from '../ui/Section';
 import { whyParamount } from '../../data/aboutPage';
 import { fadeUp } from '../../lib/motion';
 
+// Mirrors <Introduction />'s two-column "Our Approach" layout — eyebrow +
+// heading in the left column, supporting copy in the right column, and the
+// same bottom divider treatment — so this section reads as a continuation
+// of the same pattern rather than a standalone design.
 export default function WhyParamount() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section spacing="lg" background="sage-soft">
+    <Section spacing="lg" background="white">
       <motion.div
         initial={shouldReduceMotion ? false : 'hidden'}
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         variants={fadeUp}
-        className="mx-auto flex max-w-2xl flex-col items-center gap-6 rounded-(--radius-card) bg-white-warm px-8 py-12 text-center shadow-elevated md:px-14 md:py-16"
+        className="flex flex-col gap-10"
       >
-        <span className="h-1 w-14 rounded-full bg-gold" aria-hidden="true" />
-        <h2 className="text-h2">{whyParamount.heading}</h2>
-        <div className="flex flex-col gap-4">
-          {whyParamount.body.map((paragraph) => (
-            <p key={paragraph} className="text-body-lg leading-relaxed text-muted">
-              {paragraph}
-            </p>
-          ))}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
+            <span className="text-eyebrow uppercase text-sage-deep font-semibold">{whyParamount.eyebrow}</span>
+            <h2 className="text-h2 mt-3">{whyParamount.heading}</h2>
+          </div>
+          <div className="lg:col-span-7 flex flex-col gap-5">
+            {whyParamount.body.map((paragraph) => (
+              <p key={paragraph} className="text-body-lg text-muted">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
+
+        <div className="border-t border-border pt-10" aria-hidden="true" />
       </motion.div>
     </Section>
   );

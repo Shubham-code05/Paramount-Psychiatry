@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Section from '../ui/Section';
 import Button from '../ui/Button';
-import Card from '../ui/Card';
 import { introduction } from '../../data/home';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 
@@ -35,11 +34,7 @@ export default function Introduction() {
           {introduction.cta}
         </Button>
 
-        <div className="flex flex-col gap-8 border-t border-border pt-10">
-          <span className="text-eyebrow uppercase text-sage-deep font-semibold text-center">
-            {introduction.valuesEyebrow}
-          </span>
-
+        <div className="border-t border-border pt-10">
           <motion.div
             initial={shouldReduceMotion ? false : 'hidden'}
             whileInView="visible"
@@ -47,14 +42,10 @@ export default function Introduction() {
             variants={staggerContainer}
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {introduction.values.map(({ icon: Icon, title, description }) => (
-              <motion.div key={title} variants={fadeUp}>
-                <Card variant="outlined" hover className="h-full">
-                  <Icon className="text-navy" size={26} aria-hidden="true" />
-                  <h3 className="text-h4 mt-4">{title}</h3>
-                  <p className="text-body-sm text-muted mt-2">{description}</p>
-                </Card>
-              </motion.div>
+            {introduction.values.map(({ title }) => (
+              <motion.h3 key={title} variants={fadeUp} className="text-h4 font-semibold">
+                {title}
+              </motion.h3>
             ))}
           </motion.div>
         </div>

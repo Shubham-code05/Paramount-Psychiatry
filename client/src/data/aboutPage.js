@@ -29,6 +29,7 @@ export const vision = {
 };
 
 export const whyParamount = {
+  eyebrow: 'Why Paramount Psychiatry?',
   heading: 'Why Paramount Psychiatry?',
   body: [
     'The word Paramount represents the highest standard of care.',
