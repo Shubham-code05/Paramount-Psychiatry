@@ -15,6 +15,7 @@ export default function PracticePoliciesPage() {
         intro={practicePoliciesHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Practice Policies' }]}
         sketch="/images/sketch/Practocepolices.png"
+        sketchClassName="max-w-none"
       />
 
       <Section spacing="sm" background="white">

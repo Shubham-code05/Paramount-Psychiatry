@@ -2,7 +2,6 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Section from '../components/ui/Section';
 import SectionHeading from '../components/ui/SectionHeading';
 import AppointmentButton from '../components/shared/AppointmentButton';
-import HeroBloom from '../components/decor/HeroBloom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import site from '../data/site';
 
@@ -47,7 +46,14 @@ export default function ContactPage() {
           <AppointmentButton />
         </div>
 
-        <HeroBloom variant="openSky" className="hidden lg:col-span-5 lg:block" />
+        <div className="flex justify-center lg:col-span-5 lg:items-center lg:justify-end">
+          <img
+            src="/images/sketch/contact.png"
+            alt=""
+            aria-hidden="true"
+            className="w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[480px]"
+          />
+        </div>
       </div>
     </Section>
   );
