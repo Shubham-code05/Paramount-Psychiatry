@@ -53,7 +53,6 @@ export default function InsuranceFeesPage() {
   return (
     <>
       <PageHero
-        eyebrow={insuranceFeesHero.eyebrow}
         title={insuranceFeesHero.title}
         intro={insuranceFeesHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Insurance & Fees' }]}

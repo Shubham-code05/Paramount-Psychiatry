@@ -11,7 +11,6 @@ export default function PracticePoliciesPage() {
   return (
     <>
       <PageHero
-        eyebrow={practicePoliciesHero.eyebrow}
         title={practicePoliciesHero.title}
         intro={practicePoliciesHero.intro}
         crumbs={[{ label: 'Home', path: '/' }, { label: 'Practice Policies' }]}
