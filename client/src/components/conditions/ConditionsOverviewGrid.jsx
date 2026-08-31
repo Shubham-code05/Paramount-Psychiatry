@@ -1,21 +1,78 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
-import { conditionCategories } from '../../data/conditions';
+import { conditionCategories, conditions } from '../../data/conditions';
 import { staggerContainer, fadeUp } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
-const [featured, ...rest] = conditionCategories;
+// One heading row per category. Hovering (desktop) or tapping/clicking
+// (touch, and as an explicit toggle everywhere) reveals a dropdown listing
+// that category's "Areas We Commonly Address" — each item links straight to
+// the category's /conditions/:slug page. Mirrors the open/close pattern
+// already used by the Navbar's mega menu (hover + click both toggle the
+// same state) so behavior stays consistent across the site.
+function AreaRow({ category }) {
+  const [open, setOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const areas = conditions[category.slug]?.areas?.items ?? [];
 
-// Icon-circle color cycles through the three supporting brand tints — sage,
-// blue, warm gold — in equal rotation, same treatment for all three.
-const iconStyles = [
-  { bg: 'bg-sage-soft', text: 'text-sage-deep' },
-  { bg: 'bg-blue-soft', text: 'text-navy' },
-  { bg: 'bg-gold/15', text: 'text-gold' },
-];
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false);
+      }}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((v) => !v)}
+        className={cn(
+          'flex w-full items-center justify-between gap-3 rounded-(--radius-card) border border-border bg-white px-5 py-4 text-left shadow-soft transition-all duration-300 ease-calm hover:shadow-elevated',
+          open && 'shadow-elevated',
+        )}
+      >
+        <span className="text-h4 text-navy-deep">{category.title}</span>
+        <ChevronDown
+          size={18}
+          aria-hidden="true"
+          className={cn('shrink-0 text-sage-deep transition-transform duration-300 ease-calm', open && 'rotate-180')}
+        />
+      </button>
+
+      <AnimatePresence>
+        {open && areas.length > 0 && (
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute left-0 right-0 top-full z-20 mt-2 max-h-80 overflow-y-auto rounded-(--radius-card) border border-border bg-white p-2 shadow-elevated"
+          >
+            <ul className="flex flex-col">
+              {areas.map((area) => (
+                <li key={area.title}>
+                  <Link
+                    to={`/conditions/${category.slug}`}
+                    className="block rounded-lg px-3 py-2 text-body-sm text-charcoal transition-colors hover:bg-navy/5 hover:text-navy"
+                  >
+                    {area.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function ConditionsOverviewGrid() {
   const shouldReduceMotion = useReducedMotion();
@@ -36,57 +93,12 @@ export default function ConditionsOverviewGrid() {
           />
         </motion.div>
 
-        {/* Featured category — Comprehensive Psychiatric Services is the foundation every plan builds on. */}
-        <motion.div variants={fadeUp}>
-          <Link
-            to={`/conditions/${featured.slug}`}
-            className="group relative flex flex-col gap-4 overflow-hidden rounded-(--radius-card) bg-navy-deep p-8 text-white shadow-elevated transition-transform duration-300 ease-calm hover:-translate-y-0.5 md:flex-row md:items-center md:justify-between md:gap-8 md:p-10"
-          >
-            <div
-              className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-[58%_42%_36%_64%/60%_38%_62%_40%] bg-white/5"
-              aria-hidden="true"
-            />
-            <div className="relative flex items-start gap-5">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
-                <featured.icon size={22} strokeWidth={1.5} aria-hidden="true" />
-              </span>
-              <div className="flex flex-col gap-2">
-                <span className="text-eyebrow uppercase text-sage font-semibold">Where Every Plan Begins</span>
-                <h3 className="text-h3 text-white">{featured.title}</h3>
-                <p className="text-body-sm text-white/70 max-w-md">{featured.description}</p>
-              </div>
-            </div>
-            <span className="relative inline-flex shrink-0 items-center gap-1.5 text-body-sm font-semibold text-white">
-              Learn More
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-            </span>
-          </Link>
-        </motion.div>
-
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((category, index) => {
-            const iconStyle = iconStyles[index % iconStyles.length];
-            return (
-              <motion.div key={category.slug} variants={fadeUp} className="h-full">
-                <Link
-                  to={`/conditions/${category.slug}`}
-                  className="group flex h-full flex-col gap-4 rounded-(--radius-card) border border-border bg-white p-6 shadow-soft transition-all duration-300 ease-calm hover:-translate-y-0.5 hover:shadow-elevated"
-                >
-                  <span className={cn('flex h-11 w-11 items-center justify-center rounded-full', iconStyle.bg, iconStyle.text)}>
-                    <category.icon size={20} strokeWidth={1.5} aria-hidden="true" />
-                  </span>
-                  <div className="flex flex-1 flex-col gap-1.5">
-                    <h3 className="text-h4 text-navy-deep">{category.title}</h3>
-                    <p className="text-body-sm text-muted">{category.description}</p>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-navy">
-                    Learn More
-                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                  </span>
-                </Link>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {conditionCategories.map((category) => (
+            <motion.div key={category.slug} variants={fadeUp}>
+              <AreaRow category={category} />
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </Section>
