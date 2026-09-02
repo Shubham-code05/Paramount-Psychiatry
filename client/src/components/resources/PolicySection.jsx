@@ -4,13 +4,21 @@ import { ArrowUpRight } from 'lucide-react';
 import Section from '../ui/Section';
 import { fadeUp } from '../../lib/motion';
 
-// One named, anchorable policy block (Communication, Appointments, Privacy,
-// etc.) on the Practice Policies page. `id` becomes the section's anchor so
-// links like /practice-policies#privacy work. Layout matches <WhyParamount
-// />'s "Why Paramount Psychiatry?" section: heading in a lg:col-span-5 left
-// column, copy (and an optional link) in a lg:col-span-7 right column, with
-// the same bottom divider treatment.
-export default function PolicySection({ id, heading, paragraphs, link, background = 'white' }) {
+export default function PolicySection({
+  id,
+  heading,
+  paragraphs = [],
+  bullets,
+  nestedBullets,
+  closingParagraphs,
+  subheading,
+  subparagraphs,
+  subheading2,
+  subparagraphs2,
+  finalParagraph,
+  link,
+  background = 'white',
+}) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -28,10 +36,54 @@ export default function PolicySection({ id, heading, paragraphs, link, backgroun
           </div>
           <div className="lg:col-span-7 flex flex-col gap-5">
             {paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-body-lg text-muted">
+              <p key={`${heading}-paragraph-${index}`} className="text-body-lg text-muted whitespace-pre-line">
                 {paragraph}
               </p>
             ))}
+
+            {subheading && <h3 className="text-h3 text-navy-deep">{subheading}</h3>}
+            {subparagraphs &&
+              subparagraphs.map((paragraph, index) => (
+                <p key={`${heading}-subparagraph-${index}`} className="text-body-lg text-muted whitespace-pre-line">
+                  {paragraph}
+                </p>
+              ))}
+
+            {subheading2 && <h3 className="text-h3 text-navy-deep">{subheading2}</h3>}
+            {subparagraphs2 &&
+              subparagraphs2.map((paragraph, index) => (
+                <p key={`${heading}-subparagraph2-${index}`} className="text-body-lg text-muted whitespace-pre-line">
+                  {paragraph}
+                </p>
+              ))}
+
+            {bullets && (
+              <ul className="list-disc space-y-2 pl-6 text-body-lg text-muted">
+                {bullets.map((item, bulletIndex) => (
+                  <li key={`${heading}-bullet-${bulletIndex}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+
+            {nestedBullets && (
+              <ul className="list-disc space-y-2 pl-10 text-body-lg text-muted">
+                {nestedBullets.map((item, index) => (
+                  <li key={`${heading}-nested-${index}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+
+            {closingParagraphs &&
+              closingParagraphs.map((paragraph, index) => (
+                <p key={`${heading}-closing-${index}`} className="text-body-lg text-muted whitespace-pre-line">
+                  {paragraph}
+                </p>
+              ))}
+
+            {finalParagraph && (
+              <p className="text-body-lg text-muted whitespace-pre-line">{finalParagraph}</p>
+            )}
+
             {link && (
               <Link
                 to={link.path}
