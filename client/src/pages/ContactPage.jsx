@@ -62,18 +62,24 @@ export default function ContactPage() {
       </Section>
 
       <Section spacing="md" background="white">
-        <div className="flex flex-col items-center gap-8 text-center">
-          <SectionHeading align="center" eyebrow="Find Us" title="Visit Our Office" description="Conveniently located in Manalapan, New Jersey." />
-          <div className="w-full max-w-4xl">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[2fr_3fr] lg:gap-16">
+          <div className="min-w-0">
+            <SectionHeading eyebrow="Find Us" title="Visit Our Office" description="Conveniently located in Manalapan, New Jersey." />
+          </div>
+          <div className="min-w-0 w-full">
             <LocationMap />
           </div>
         </div>
       </Section>
 
       <Section spacing="md" background="ivory">
-        <div className="flex flex-col gap-8 max-w-2xl">
-          <SectionHeading eyebrow="Get In Touch" title="Send a Message" description="Prefer to write? Send a message and we'll follow up." />
-          <ContactForm />
+        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[2fr_3fr] lg:gap-16">
+          <div className="min-w-0">
+            <SectionHeading eyebrow="Get In Touch" title="Send a Message" description="Prefer to write? Send a message and we'll follow up." />
+          </div>
+          <div className="min-w-0">
+            <ContactForm />
+          </div>
         </div>
       </Section>
 

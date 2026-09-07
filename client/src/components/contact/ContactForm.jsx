@@ -19,7 +19,9 @@ function validate(values) {
     errors.email = 'Please enter a valid email address.';
   }
 
-  if (values.phone.trim() && !/^[\d\s()+-]{7,}$/.test(values.phone.trim())) {
+  if (!values.phone.trim()) {
+    errors.phone = 'Please enter your phone number.';
+  } else if (!/^[\d\s()+-]{7,}$/.test(values.phone.trim())) {
     errors.phone = 'Please enter a valid phone number.';
   }
 
@@ -116,7 +118,16 @@ export default function ContactForm() {
         />
       </div>
 
-      <FormField id="phone" label="Phone" type="tel" value={values.phone} onChange={update('phone')} error={errors.phone} autoComplete="tel" />
+      <FormField
+        id="phone"
+        label="Phone"
+        type="tel"
+        required
+        value={values.phone}
+        onChange={update('phone')}
+        error={errors.phone}
+        autoComplete="tel"
+      />
 
       <FormField
         id="message"

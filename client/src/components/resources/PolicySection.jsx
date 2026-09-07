@@ -17,6 +17,7 @@ export default function PolicySection({
   subparagraphs2,
   finalParagraph,
   link,
+  hideDivider = false,
   background = 'white',
 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -96,7 +97,7 @@ export default function PolicySection({
           </div>
         </div>
 
-        <div className="border-t border-border pt-10" aria-hidden="true" />
+        <div className={hideDivider ? 'pt-10' : 'border-t border-border pt-10'} aria-hidden="true" />
       </motion.div>
     </Section>
   );

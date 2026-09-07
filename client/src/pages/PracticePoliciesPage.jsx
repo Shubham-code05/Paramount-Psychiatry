@@ -30,6 +30,7 @@ export default function PracticePoliciesPage() {
           subparagraphs2={section.subparagraphs2}
           finalParagraph={section.finalParagraph}
           link={section.link}
+          hideDivider
           background={index % 2 === 1 ? 'ivory' : 'white'}
         />
       ))}
